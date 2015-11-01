@@ -8,6 +8,15 @@ import json
 module = Blueprint('api', __name__)
 
 
+def share(data):
+    resp = make_response(data)
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    resp.headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept'
+    resp.headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS, PUT, DELETE'
+    resp.headers['Access-Control-Allow-Credentials'] = 'true'
+    return resp
+
+
 @module.route('/api/movies')
 def movies():
     ms = db.session.query(Movie).filter(Movie.status > 0).all()
@@ -70,9 +79,4 @@ def timeline():
         } for o in ms]
     })
 
-    resp = make_response(data)
-    resp.headers['Access-Control-Allow-Origin'] = '*'
-    resp.headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept'
-    resp.headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS, PUT, DELETE'
-    resp.headers['Access-Control-Allow-Credentials'] = 'true'
-    return resp
+    return share(data)
