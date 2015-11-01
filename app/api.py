@@ -88,10 +88,10 @@ def nomination():
         "err_msg": "success",
         "data": [{
             'id': o.id,
-            'name': o.name,
+            'title': o.name,
             'movie_name': o.movie_name,
-            'description': o.description,
-            'url': o.url,
-            'pic': o.pic,
+            'text': o.description,
+            'iframe': o.url,
+            'origianl_pic': o.pic,
         } for o in ms]
     }))
