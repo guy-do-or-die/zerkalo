@@ -2,7 +2,9 @@
 
 {% block access_control %}
     <div class="navbar-btn btn-group pull-right">
-      {% if current_user and not current_user.is_anonymous and current_user.is_authenticated %}
+      {% if current_user.is_anonymous %}
+        <a class="btn btn-default" href="/login">Login</a>
+      {% else %}
         <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
             <i class="glyphicon glyphicon-user"></i>&nbsp;<span class="caret"></span>
         </a>
@@ -11,8 +13,6 @@
           <li class="divider">{{ current_user.email }}</li>
           <li><a href="/logout">Logout</a></li>
         </ul>
-      {% else %}
-        <a class="btn btn-default" href="/login">Login</a>
       {% endif %}
     </div>
 {% endblock %}
