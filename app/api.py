@@ -1,6 +1,6 @@
 from .models import Movie, Vote
 from . import db
-
+from flask import make_response
 from flask import Blueprint, jsonify
 from flask.ext.security import current_user
 import json
@@ -38,7 +38,7 @@ def vote(movie_id):
 @module.route('/api/timeline.json')
 def timeline():
     ms = db.session.query(Movie).filter(Movie.status > 0).all()
-    return json.dumps({
+    data = json.dumps({
         'err_code': 0,
         'err_msg': 'success',
         'data': [{
@@ -52,3 +52,10 @@ def timeline():
             'created_at': 'n/a'
         } for o in ms]
     })
+
+    resp = make_response(data)
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    resp.headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept'
+    resp.headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS, PUT, DELETE'
+    resp.headers['Access-Control-Allow-Credentials'] = 'true'
+    return resp;
