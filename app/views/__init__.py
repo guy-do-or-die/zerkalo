@@ -6,9 +6,14 @@ from .base import MainView
 
 
 def init(app):
-    admin = Admin(name='Zerkalo', index_view=MainView(url='/app', name='Main', template='main.html'))
+    admin = Admin(app,
+                  name='Zerkalo',
+                  base_template='base.html',
+                  template_mode='bootstrap3',
+                  index_view=MainView(url='/app',
+                                      name='Main',
+                                      template='main.html'))
 
-    admin.init_app(app)
     app.admin_root = admin
 
     def init_module(name):

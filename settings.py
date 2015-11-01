@@ -28,3 +28,4 @@ GOOGLE_ACCESS_TOKEN_URL = 'https://www.googleapis.com/oauth2/v1/userinfo?access_
 GOOGLE_CLIENT_ID = '552795822287-h5le6mp6ar6l0riplpiqhhliqhb797ut.apps.googleusercontent.com'
 GOOGLE_CLIENT_SECRET = 'rgwIPxf1FBbtF6DmHwOegxNQ'
 REDIRECT_URI = 'http://localhost:5000/oauth2callback'
+#REDIRECT_URI = 'http://zerkalo.herokuapp.com/oauth2@callback'
