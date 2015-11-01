@@ -1,4 +1,4 @@
-from ..models import Movie, Vote
+from ..models import Movie, Vote, Nomination
 from .base import AdminModelView
 
 
@@ -24,5 +24,14 @@ def _init(admin):
             url='votes',
             name='Vote',
             endpoint='vote'
+        )
+    )
+
+    admin.add_view(
+        AdminModelView(
+            Nomination,
+            url='nominations',
+            name='Nomination',
+            endpoint='Nomination'
         )
     )
