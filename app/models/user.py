@@ -52,8 +52,5 @@ class User(db.Model, UserMixin):
     def is_anonymous(self):
         return False
 
-    def get_id(self):
-        return unicode(self.id)
-
     def __repr__(self):
         return self.email

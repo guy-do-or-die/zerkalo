@@ -1,7 +1,8 @@
-from .models import Movie
+from .models import Movie, Vote
 from . import db
 
 from flask import Blueprint, jsonify
+from flask.ext.security import current_user
 import json
 
 module = Blueprint('api', __name__)
@@ -22,6 +23,8 @@ def movie(movie_id):
 def vote(movie_id):
     m = db.session.query(Movie).get(movie_id)
     m.rate += 1
+
+    db.session.add(Vote(movie_id, getattr(current_user, 'id', None)))
 
     try:
         db.session.commit()
