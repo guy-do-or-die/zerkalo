@@ -97,6 +97,19 @@
         </div>
     </div>
 
+    <div id="loginView" class="view tab">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center sliding i18n" data-i18n="app.name"></div>
+            </div>
+        </div>
+        <div class="pages navbar-through">
+            <div data-page="login" class="page">
+            </div>
+        </div>
+    </div>
+
+
     <!-- toolbar start -->
     <div class="toolbar tabbar tabbar-labels">
         <div class="toolbar-inner">
@@ -121,21 +134,13 @@
                 <!-- Filing Cabinet icon by Icons8 -->
                 <img class="icon icons8-Filing-Cabinet" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAABq0lEQVRoQ+2a/U3EMAzFfzcBMAGMABMAE8AGMAJMAEwAbAAbwASwAbcBK8AEoCcl0qlqU59b0qPn/HPSyan9/FWnLwtmshYzwcFWATkBbgD9TrFegEfgvaS8LyK3CcQUAJo67wDZ07pKQBSBN+A7PeAJ+KqMaBe4TPp3gNOuyJSAKJTHwDXwUBlAU90VcA+8AudttpSA/KQNexNEomnrAfCZ/my12QKkr45qBSs7tgqQj4TqqAedVW71MVWBZGUCsuwAcwgIiJqIitm6qgJRZ7swWvacOpJRnKpA5GH1enWW/Q4LFQkBltw67bwqEKt3PXIBpOgBj0sH7omIZA8MdOTo290vxNEtGfhAN5CtHFEGOru4PYo92u8f5Veklie1rOcMq1ycR8we6KiDOI8YGkQUu6fYDY51i0REYox3J49tY4zxcR6xZYpZKrrWVr9HrFOtVc48+43Nj8TXeEPJVy32jf4a/+85RBH1Z3NgdTPPLjJGpIwYpnWIGUPa94ooVcWAZXrcxbNLyyxuPmR3KTIi7JVmUyxdElBEBt1FmcJwl85NmWxdxq9u+gXxgoozGhj/hwAAAABJRU5ErkJggg=="
                      width="32" height="32" style="opacity: .5">
-                <span class="tabbar-label ">Архив</span>
+                <span class="tabbar-label ">Номинанты</span>
             </a>
 
-            <a href="#homeView" class="tab-link">
-                <i class="icon ios7-home-outline"></i>
-                <span class="tabbar-label">Избранное</span>
-            </a>
-            <a href="#homeView" class="tab-link">
-                <i class="icon ios7-home-outline"></i>
-                <span class="tabbar-label">Поиск</span>
-            </a>
 
             <a href="#settingView" class="tab-link">
                 <!--<i class="icon ios7-gear-outline">-->
-                    <!--&lt;!&ndash; <span class="badge badge-red">4</span> &ndash;&gt;-->
+                <!--&lt;!&ndash; <span class="badge badge-red">4</span> &ndash;&gt;-->
                 <!--</i>-->
                 <!-- User Male icon by Icons8 -->
                 <img class="icon icons8-User-Male" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAADR0lEQVRoQ+2Z/VVTQRDFLxUoFSgVKBWoFYgVqBVoB2AFaAVqB1oBUoFQgVqBWoGcH2eGs3kh+3ZnJ4QTmX+Sk7zdnTt3vnbejrZEdrYEh+6ANDD5UNIDSU8nz36TdNqwvuuRdTDyUtKrawCUiv2U9ELSWZe2lYczgdyX9FHSgZ331xSFARee4X+Y+iPpk6SvkspnQtiygKDgiaTHkgAAI18qGgEA5lx49rWB2yiQI0mHks7NpbD2nACa+GHtPQOOu4UkgxGC+oedvh/we9YTK4B5FnWzDCBvJR2br3t89FrVGSVeQntkAMG/n5uP4/sRwc2+W4zsRjbIAELGeTLiFqb4P/sM6RRaNLEYlsSiYf++LUCckUiglzbZOCNb41oe7NSAWhGsxTD1hIJKHcJNuyUjRjx1vrPi1q2EJE/hn60r6N4jA4hbk4522um2KjScwjOA0FfRLNKWhGqApN+S6NfC7pkBxIN9xLVuRWXPyFrD7pnByLB/W4DjnhvttTxGuPXhXr39Fuu5AtAFcyfpXX+ZUDIYYR9nJbKnV/QwG5FDa+mUO8UjST2tine94ULoCmUxwn7vJb0x9yILtYivCRfCdQAp7xR7Dfdv6gY3Sz57WLzWQJmMcICnYtyMtn7V3b2cuIx0BFegsoGgICAY99TuJ143mLjwfXi+lQ2kZKUFSAob2VnLaW6p9MOVfBoom2IEF6RRTDNmNhCqM3d4FCVzUe1XiRfC4YyVZg3TlPRLv8Rni+/72JRApzUZCvgMRmCBXomeCWkdm8Ia8UQ3gACMXq3G4kp6R4AwlOOKWt4KqdD81jL7RSnAUN3LgTbg+I3eq1l6gXAwbQjWhwmEWkDTSFsSsqbtxXrGpcyAEfaCpQ8thukBAgAOAwzyyyzHYa0MzFnY35/Aqrsce3MugIZca/oCh0Bm4+GXMzOo/JUD41ik+g6lhREfieJCWCp08ZmjovI/bkzM4HJkNtL1kswB8TY7rScKAiKl4wGAwcUw6ILUgJQvcEYH1EH9F5Z5W8OPS8W2BsTZGLqCZiAo9vAr9RIrNSDe/IUHAskg2M4HHUudQw2I90Jr0CdlywXd/wsgKWa7qU3m0u9N6TF8zh2QYRMmb3ABgfq3Mx0R0YoAAAAASUVORK5CYII="
@@ -148,6 +153,9 @@
 </div>
 
 <script src="static/app.js"></script>
+<!-- Please ignore the 404 error when you are not running under PhoneGap environment or delete it. -->
+<script type="text/javascript" src="cordova.js"></script>
+
 
 <script src="http://localhost:3000/webpack-dev-server.js"></script>
 
