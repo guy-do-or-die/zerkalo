@@ -13,6 +13,7 @@ def movies():
     ms = db.session.query(Movie).filter(Movie.status > 0).all()
     return json.dumps([o.to_json for o in ms])
 
+
 @module.route('/api/shortlist')
 def shortliist():
     ms = db.session.query(Movie).filter(Movie.status > 1).all()
@@ -26,6 +27,7 @@ def perosnal():
     else:
         ms = db.session.query(Movie).filter(Movie.user_id == current_user.id).all()
         return json.dumps([o.to_json for o in ms])
+
 
 @module.route('/api/movie/<int:movie_id>')
 def movie(movie_id):
@@ -51,7 +53,7 @@ def vote(movie_id):
 @module.route('/api/timeline.json')
 def timeline():
     ms = db.session.query(Movie).filter(Movie.status > 0).all()
-    return json.dumps({
+    data = json.dumps({
         'err_code': 0,
         'err_msg': 'success',
         'data': [{
