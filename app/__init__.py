@@ -33,7 +33,6 @@ with app.app_context():
     init_module('app.auth')
     init_module('app.api')
 
-
     @app.teardown_appcontext
     def shutdown_session(response):
         db.session.remove()
