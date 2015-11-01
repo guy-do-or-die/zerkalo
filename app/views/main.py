@@ -1,3 +1,2 @@
 class MainView(AdminIndexView):
     pass
-
