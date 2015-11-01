@@ -52,7 +52,7 @@ var home = {
                     home.showLoadResult(i18n.index.nothing_loaded);
                 }
 
-                hiApp.pullToRefreshDone();
+                //hiApp.pullToRefreshDone();
 
             },1500);
 
@@ -158,12 +158,14 @@ var home = {
             selector: '.pull-to-refresh-content',
             event: 'refresh',
             handler: this.refreshTimeline
-        },{
-            element: '#homeView',
-            selector: '.pull-to-refresh-content',
-            event: 'infinite',
-            handler: this.infiniteTimeline
-        },{
+        },
+        //    {
+        //    element: '#homeView',
+        //    selector: '.pull-to-refresh-content',
+        //    event: 'infinite',
+        //    handler: this.infiniteTimeline
+        //},
+            {
             element: '#homeView',
             selector: '.refresh-click',
             event: 'click',
