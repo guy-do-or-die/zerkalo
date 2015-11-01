@@ -150,7 +150,7 @@ var home = {
     },
     bindEvent: function(){
 
-        var bindings = [{
+        var bindings = [/*{
             element: '#homeView',
             selector: '.pull-to-refresh-content',
             event: 'refresh',
@@ -165,7 +165,7 @@ var home = {
             selector: '.refresh-click',
             event: 'click',
             handler: this.refreshTimelineByClick
-        },{
+        },*/{
             element: '#homeView',
             selector: 'a.open-send-popup',
             event: 'click',
