@@ -148,6 +148,9 @@ var home = {
         var itemId = $$(this).data('id');
         homeF7View.router.loadPage('page/tweet.html?id=' + itemId);
     },
+    openLoginPage: function(e){
+        homeF7View.router.loadPage('page/login.html');
+    },
     bindEvent: function(){
 
         var bindings = [{
@@ -164,7 +167,7 @@ var home = {
             element: '#homeView',
             selector: '.refresh-click',
             event: 'click',
-            handler: this.refreshTimelineByClick
+            handler: this.openLoginPage
         },{
             element: '#homeView',
             selector: 'a.open-send-popup',

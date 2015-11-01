@@ -1,15 +1,16 @@
-require('./contacts.less');
+require('./login.less');
 
 var appFunc = require('../utils/appFunc'),
     service = require('./service'),
-    template = require('./contacts.tpl.html');
+    template = require('./login.tpl.html');
 
-var contacts = {
+var loginModule = {
     init: function(){
-        contacts.bindEvents();
+        alert('loginModule');
+        loginModule.bindEvents();
     },
     loadContacts: function(){
-        if(contacts.beforeLoadContacts()) {
+        if(loginModule.beforeLoadContacts()) {
             hiApp.searchbar('#contactView .searchbar',{
                 searchList: '.contacts-list',
                 searchIn: '.item-title'

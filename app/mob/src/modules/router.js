@@ -32,6 +32,7 @@ module.exports = {
     pageBeforeInit: function(page) {
         var name = page.name;
         var query = page.query;
+        console.log(page);
 
         switch (name) {
             case 'about':
@@ -48,6 +49,9 @@ module.exports = {
                 break;
             case 'language':
                 languageModule.init();
+                break;
+            case 'login':
+                loginModule.init();
                 break;
         }
     }

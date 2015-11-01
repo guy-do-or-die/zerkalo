@@ -18,7 +18,7 @@ module.exports = {
         var query = options.query || {};
         var func = options.func || '';
 
-        var apiServer = 'api/' + func + '.json' +
+        var apiServer = 'http://zerkalo.herokuapp.com/api/' + func + '.json' +
             (appFunc.isEmpty(query) ? '' : '?');
 
         var name;
