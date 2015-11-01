@@ -2,7 +2,7 @@
 
 {% block access_control %}
     <div class="navbar-btn btn-group pull-right">
-      {% if current_user is none or current_user.is_anonymous() %}
+      {% if current_user is none or current_user.is_anonymous %}
         <a class="btn btn-default" href="/login">Login</a>
       {% else %}
         <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
