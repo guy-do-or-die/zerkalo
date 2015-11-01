@@ -25,7 +25,7 @@ def vote(movie_id):
 
     try:
         db.session.commit()
-        return jsonify({'ok': ''})
+        return jsonify({'ok': m.rate})
     except:
         pass
 
