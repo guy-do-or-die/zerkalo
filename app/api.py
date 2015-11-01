@@ -13,6 +13,19 @@ def movies():
     ms = db.session.query(Movie).filter(Movie.status > 0).all()
     return json.dumps([o.to_json for o in ms])
 
+@module.route('/api/shortlist')
+def shortliist():
+    ms = db.session.query(Movie).filter(Movie.status > 1).all()
+    return json.dumps([o.to_json for o in ms])
+
+
+@module.route('/api/personal')
+def perosnal():
+    if current_user.is_anonymous():
+        return []
+    else:
+        ms = db.session.query(Movie).filter(Movie.user_id == current_user.id).all()
+        return json.dumps([o.to_json for o in ms])
 
 @module.route('/api/movie/<int:movie_id>')
 def movie(movie_id):
@@ -38,7 +51,7 @@ def vote(movie_id):
 @module.route('/api/timeline.json')
 def timeline():
     ms = db.session.query(Movie).filter(Movie.status > 0).all()
-    data = json.dumps({
+    return json.dumps({
         'err_code': 0,
         'err_msg': 'success',
         'data': [{
@@ -49,7 +62,9 @@ def timeline():
             'text': o.description,
             'original_pic': o.pic,
             'iframe': o.url,
-            'created_at': 'n/a'
+            'created_at': 'n/a',
+            'rate': o.rate,
+            'user_id': o.rate
         } for o in ms]
     })
 
@@ -58,4 +73,4 @@ def timeline():
     resp.headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept'
     resp.headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS, PUT, DELETE'
     resp.headers['Access-Control-Allow-Credentials'] = 'true'
-    return resp;
+    return resp
