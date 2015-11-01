@@ -1,0 +1,4 @@
+{% block content %}
+<h1>Page Not Found</h1>
+<p><a href="{{request.args.get('url') or '/'}}">Back</a></p>
+{% endblock %}

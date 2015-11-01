@@ -1,0 +1,5 @@
+{% block content %}
+<h1>Forbidden</h1>
+You do not have permission to view this resource. 
+<p><a href="{{request.args.get('url') or '/'}}">Back</a> / <a href="/login">Log in</a> / <a href="/logout">Log out</a></p>
+{% endblock %}

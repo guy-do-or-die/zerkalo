@@ -1,0 +1,84 @@
+@import "../../style/less/mixins";
+
+.load-result{
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  background-color: @mainColor;
+  color: #ffffff;
+  z-index: 1000;
+  text-align: center;
+  line-height: 30px;
+  opacity: 0;
+}
+.home-timeline {
+  padding-bottom: 15px;
+  .card-content .card-content-inner{
+    padding: 0;
+    >p{
+      display: none;
+    }
+  }
+  .ks-facebook-card {
+    width: 47%;
+    display: inline-block;
+    margin: 10px 1%;
+  }
+  .item-image{
+    position: relative;
+    .item-title{
+      width: 100%;
+      height: 24px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+    }
+    .item-image-box{
+      width: 100%;
+      height: 125px;
+      background-size: cover;
+      background-position: 50%;
+    }
+
+  }
+
+
+}
+.ks-facebook-card {
+
+  .card-header {
+    display: block;
+    padding: 10px;
+  }
+  .ks-facebook-avatar {
+    float: left;
+  }
+  .ks-facebook-name {
+    margin-left: 44px;
+    font-size: 14px;
+    font-weight: 500;
+    color: @mainColor;
+  }
+  .ks-facebook-date {
+    margin-left: 44px;
+    font-size: 13px;
+    color: #8e8e93;
+  }
+  .card-footer {
+    background: #fafafa;
+    a {
+      color: #81848b;
+      font-weight: 500;
+    }
+    img {
+      display: block;
+    }
+  }
+  .card-content-inner {
+    padding: 15px 10px;
+  }
+}

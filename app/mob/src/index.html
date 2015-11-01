@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Zerkalo</title>
+    <link rel="stylesheet" href="app.css"/>
+</head>
+<body>
+<div class="statusbar-overlay"></div>
+<div class="panel-overlay"></div>
+
+<div class="views tabs toolbar-through">
+    <div id="homeView" class="view view-main tab active">
+        <div class="navbar">
+            <div class="navbar-inner">
+
+                <div class="left">
+                    <a href="#"  class="refresh-click link">
+                        <i class="icon ios7-reload"></i>
+                    </a>
+                </div>
+
+                <div class="center sliding i18n" data-i18n="app.name">Главная</div>
+
+                <div class="right">
+                    <a href="#" class="open-send-popup link icon-only">
+                        <i class="icon ios7-compose-outline"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="pages navbar-through">
+            <div data-page="homeView" class="page no-swipeback">
+                <div data-distance="50" class="page-content pull-to-refresh-content infinite-scroll">
+                    <div class="pull-to-refresh-layer">
+                        <div class="preloader"></div>
+                        <div class="pull-to-refresh-arrow"></div>
+                    </div>
+                    <div class="load-result"></div>
+                    <div class="home-timeline">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="contactView" class="view tab">
+
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center sliding i18n" data-i18n="app.name"></div>
+            </div>
+        </div>
+
+        <div class="pages navbar-through">
+            <div data-page="contactView" class="page contact-page">
+                <!-- Search bar -->
+                <form class="searchbar">
+                    <div class="searchbar-input">
+                        <input type="search" class="i18n" data-i18n="[placeholder]global.search">
+                        <a href="#" class="searchbar-clear"></a>
+                    </div>
+                    <a href="#" class="searchbar-cancel i18n" data-i18n="global.cancel"></a>
+                </form>
+
+                <!-- Search bar overlay-->
+                <div class="searchbar-overlay"></div>
+
+                <div class="page-content">
+                    <div class="list-block contacts-list searchbar-found">
+                        <div class="list-group">
+                            <ul></ul>
+                        </div>
+                    </div>
+                    <div class="content-block searchbar-not-found i18n" data-i18n="index.nothing_found" >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="settingView" class="view tab">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center sliding i18n" data-i18n="app.name"></div>
+            </div>
+        </div>
+        <div class="pages navbar-through">
+            <div data-page="setting" class="page">
+            </div>
+        </div>
+    </div>
+
+    <!-- toolbar start -->
+    <div class="toolbar tabbar tabbar-labels">
+        <div class="toolbar-inner">
+            <a href="#homeView" class="tab-link active">
+                <!--<i class="icon ion-star"></i>-->
+                <!-- Christmas Star icon by Icons8 -->
+                <!--star-100.png-->
+                <!--up-100.png-->
+                <!--user-100.png-->
+                <!--visible-100.png-->
+
+                <!--src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAD8UlEQVRoQ92a/ZFNQRDFz0aACBABIkAEiAARIAJEgAjYCNgIEAEiQASIgPpVzdnqHfe+6blvZp/SVfvHvjt3pk93n/6Y9440Xz6VI27MPOpo5uaS7kp6W864J+ndrPNmA0HxO0X5kwJsCpaZQK5I+lppfVXStxlIZgJ5JumpJDyB4Jnnkvh8uMwEgjfwCtxA4ArewCvDZRYQk/x7AYPigLhcgA0n/SwgJnkMpRhqAB0qM4BEkl+S9LNoHD8fTvoZQGz5Y0kPKrO/kXR/BulnADHJb0v6UAG5Jen9DNKPBrJE8poLU0g/GgjWxupPJL1cYfNjSS9KfRlG+pFA1khe47ko6Uf5cBjpRwLBA48kLZG8BmPSv5KEh/aWkUCwMtZeInmtqElPaiZF7y0tIDfDCYQOf5brRXH+BwD/x0reUs6k/xxqDcD438Ka2GR+XNsUIBCOkEBqZVvK1M8fSiJsMkKNeZ1ZuLImgjwGSJwZ6neiBVrWipbN6mdPev0ur7MmRkg84wQgbEbhulZcTOrMWjWr8Oh1eJMUju5fSPmRI84kHEqbQcP3Lwozjmea0wxZk93FCgAAwztu+g4NCuvjBfdvZ4ruUtaC/IC4UDII6fTQYABB10Bm/FXAnJlp1tIvL7CQQYjswJQX0+J5egddAAEY0juG/kuXXXWkTgKk1uGTXcMiKE2KPiX1WnS0CqK5wgyBwCHaivMQapsbz2bbkwHiLEa2MDC8M1PwgkmdunnJAkFpNsZCM5NATWoiIFXTeoAABuJRPAEzOgmwN1dGVHcyE41lOsH0AgEMVuMAMlrK7ckY9KxPZgJUV8rfAgS9uGHnsJEX0x6TMVL3zf0WIHHCi9c9ScOvLttr3y1AbDmaNbwyUvAGzWu3p7cA8Ug7kh82hvfuHoG3ADE/MiNtr7c286QXSIzj3nezoH6XhV3861XGFmNyJM+3hDUeZ+kG6pvHpfdZwyTYxZNeIFl+4Dlamvqqh/fh1q4a4XrSxZNeIBl+xI4Vi3vSdK8GiF2dtK+KuupJD5AWP2gtCCOHHOFHf+brHJ7TN/kCgRAC0NJ3it086QGyix8OI8DSJ+1q9mLziXccbpEv3TzpAbLED6zPHO3CyNwAiFafBGD285xDGDGDOxl086QHSOQHB0cy0+hh6UxWipbHEIQbDShi73i8TfMkCyTyg7To8dNk3ucrZ/bGi3Uy8C8mUvUkCyT+FMMWhcwokJ4ZGkUHL+CR+jYxVU+yQMwPdIHMeGDti5xWkWw9xzjsz/CGpOpJFohvIfkVA1xokbmlbOs54caZ/FqiefHAZlkgrMX1o8KoBcTPOZM60zRcD5Ds4QdZ998A+QPKofBTmPvfsQAAAABJRU5ErkJggg=="-->
+
+                <img class="icon icons8-Christmas-Star"
+                     src="res/icons/ios/star-100.png"
+                     width="32" height="32">
+                <span class="tabbar-label">Голосование</span>
+            </a>
+
+            <a href="#contactView" class="tab-link">
+                <!--<i class="icon ios7-chatbubble-outline"></i>-->
+                <!-- Filing Cabinet icon by Icons8 -->
+                <img class="icon icons8-Filing-Cabinet" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAABq0lEQVRoQ+2a/U3EMAzFfzcBMAGMABMAE8AGMAJMAEwAbAAbwASwAbcBK8AEoCcl0qlqU59b0qPn/HPSyan9/FWnLwtmshYzwcFWATkBbgD9TrFegEfgvaS8LyK3CcQUAJo67wDZ07pKQBSBN+A7PeAJ+KqMaBe4TPp3gNOuyJSAKJTHwDXwUBlAU90VcA+8AudttpSA/KQNexNEomnrAfCZ/my12QKkr45qBSs7tgqQj4TqqAedVW71MVWBZGUCsuwAcwgIiJqIitm6qgJRZ7swWvacOpJRnKpA5GH1enWW/Q4LFQkBltw67bwqEKt3PXIBpOgBj0sH7omIZA8MdOTo290vxNEtGfhAN5CtHFEGOru4PYo92u8f5Veklie1rOcMq1ycR8we6KiDOI8YGkQUu6fYDY51i0REYox3J49tY4zxcR6xZYpZKrrWVr9HrFOtVc48+43Nj8TXeEPJVy32jf4a/+85RBH1Z3NgdTPPLjJGpIwYpnWIGUPa94ooVcWAZXrcxbNLyyxuPmR3KTIi7JVmUyxdElBEBt1FmcJwl85NmWxdxq9u+gXxgoozGhj/hwAAAABJRU5ErkJggg=="
+                     width="32" height="32" style="opacity: .5">
+                <span class="tabbar-label ">Архив</span>
+            </a>
+
+            <a href="#homeView" class="tab-link">
+                <i class="icon ios7-home-outline"></i>
+                <span class="tabbar-label">Избранное</span>
+            </a>
+            <a href="#homeView" class="tab-link">
+                <i class="icon ios7-home-outline"></i>
+                <span class="tabbar-label">Поиск</span>
+            </a>
+
+            <a href="#settingView" class="tab-link">
+                <!--<i class="icon ios7-gear-outline">-->
+                    <!--&lt;!&ndash; <span class="badge badge-red">4</span> &ndash;&gt;-->
+                <!--</i>-->
+                <!-- User Male icon by Icons8 -->
+                <img class="icon icons8-User-Male" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAADR0lEQVRoQ+2Z/VVTQRDFLxUoFSgVKBWoFYgVqBVoB2AFaAVqB1oBUoFQgVqBWoGcH2eGs3kh+3ZnJ4QTmX+Sk7zdnTt3vnbejrZEdrYEh+6ANDD5UNIDSU8nz36TdNqwvuuRdTDyUtKrawCUiv2U9ELSWZe2lYczgdyX9FHSgZ331xSFARee4X+Y+iPpk6SvkspnQtiygKDgiaTHkgAAI18qGgEA5lx49rWB2yiQI0mHks7NpbD2nACa+GHtPQOOu4UkgxGC+oedvh/we9YTK4B5FnWzDCBvJR2br3t89FrVGSVeQntkAMG/n5uP4/sRwc2+W4zsRjbIAELGeTLiFqb4P/sM6RRaNLEYlsSiYf++LUCckUiglzbZOCNb41oe7NSAWhGsxTD1hIJKHcJNuyUjRjx1vrPi1q2EJE/hn60r6N4jA4hbk4522um2KjScwjOA0FfRLNKWhGqApN+S6NfC7pkBxIN9xLVuRWXPyFrD7pnByLB/W4DjnhvttTxGuPXhXr39Fuu5AtAFcyfpXX+ZUDIYYR9nJbKnV/QwG5FDa+mUO8UjST2tine94ULoCmUxwn7vJb0x9yILtYivCRfCdQAp7xR7Dfdv6gY3Sz57WLzWQJmMcICnYtyMtn7V3b2cuIx0BFegsoGgICAY99TuJ143mLjwfXi+lQ2kZKUFSAob2VnLaW6p9MOVfBoom2IEF6RRTDNmNhCqM3d4FCVzUe1XiRfC4YyVZg3TlPRLv8Rni+/72JRApzUZCvgMRmCBXomeCWkdm8Ia8UQ3gACMXq3G4kp6R4AwlOOKWt4KqdD81jL7RSnAUN3LgTbg+I3eq1l6gXAwbQjWhwmEWkDTSFsSsqbtxXrGpcyAEfaCpQ8thukBAgAOAwzyyyzHYa0MzFnY35/Aqrsce3MugIZca/oCh0Bm4+GXMzOo/JUD41ik+g6lhREfieJCWCp08ZmjovI/bkzM4HJkNtL1kswB8TY7rScKAiKl4wGAwcUw6ILUgJQvcEYH1EH9F5Z5W8OPS8W2BsTZGLqCZiAo9vAr9RIrNSDe/IUHAskg2M4HHUudQw2I90Jr0CdlywXd/wsgKWa7qU3m0u9N6TF8zh2QYRMmb3ABgfq3Mx0R0YoAAAAASUVORK5CYII="
+                     width="32" height="32" style="opacity: .5">
+                <span class="tabbar-label">Профиль</span>
+            </a>
+        </div>
+    </div>
+    <!-- toolbar end -->
+</div>
+
+<!-- Please ignore the 404 error when you are not running under PhoneGap environment or delete it. -->
+<script type="text/javascript" src="cordova.js"></script>
+
+<script src="app.js"></script>
+
+<script src="http://localhost:3000/webpack-dev-server.js"></script>
+
+</body>
+
+</html>

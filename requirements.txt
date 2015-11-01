@@ -1,0 +1,12 @@
+uwsgi
+
+flask
+flask-sqlalchemy
+flask-admin
+flask-security
+
+SQLAlchemy
+SQLAlchemy-Utils
+psycopg2
+
+requests

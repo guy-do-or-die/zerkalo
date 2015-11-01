@@ -1,0 +1,4 @@
+{% block content %}
+<h1>An unexpected error has occurred</h1>
+<p><a href="{{request.args.get('url') or '/'}}">Back</a></p>
+{% endblock %}

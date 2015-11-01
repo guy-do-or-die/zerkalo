@@ -1,0 +1,18 @@
+{{#timeline}}
+<div data-id="{{id}}" data-iframe="{{iframe}}" class="card ks-facebook-card">
+
+    <div class="card-content">
+        <div class="card-content-inner">
+            {{#if original_pic}}
+            <div class="item-image">
+                <div class="item-image-box" data-pic="{{original_pic}}" style="background-image: url({{original_pic}})"></div>
+                <div class="item-title">{{title}}</div>
+            </div>
+            {{/if}}
+
+            <p>{{text}}</p>
+        </div>
+    </div>
+    <!--<div class="card-footer"><a href="#" class="link">{{t i18n="timeline.forward"}}</a><a href="#" class="link">{{t i18n="timeline.comment"}}</a><a href="#" class="link">{{t i18n="timeline.like"}}</a></div>-->
+</div>
+{{/timeline}}
