@@ -92,6 +92,6 @@ def nomination():
             'movie_name': o.movie_name,
             'text': o.description,
             'iframe': o.url,
-            'origianl_pic': o.pic,
+            'original_pic': o.pic,
         } for o in ms]
     }))
