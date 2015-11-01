@@ -12,7 +12,7 @@ ALTER TABLE ONLY roles_users ADD CONSTRAINT roles_users_user_id_fkey FOREIGN KEY
 
 
 CREATE SEQUENCE movie_id_seq START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;
-CREATE TABLE movie (id integer NOT NULL DEFAULT nextval('movie_id_seq'), name text NOT NULL, description text, url text, rate integer, status integer, pic text);
+CREATE TABLE movie (id integer NOT NULL DEFAULT nextval('movie_id_seq'), name text NOT NULL, user_id integer, description text, url text, rate integer, status integer, pic text);
 ALTER TABLE ONLY movie ADD CONSTRAINT movie_pkey PRIMARY KEY (id);
 
 

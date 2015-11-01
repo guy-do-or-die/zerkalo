@@ -14,6 +14,7 @@ class Movie(db.Model):
     pic = db.Column(db.Text)
     rate = db.Column(db.Integer)
     status = db.Column(db.Integer)
+    user_id = db.Column(db.Integer)
 
     @property
     def to_json(self):
@@ -37,15 +38,6 @@ class Vote(db.Model):
     movie_id = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer)
     weight = db.Column(db.Integer)
-
-    @property
-    def to_json(self):
-        return {
-            'name': self.name,
-            'description': self.description,
-            'url': self.url,
-            'rate': self.rate
-        }
 
     def __init__(self, movie_id, user_id=None, weight=None):
         super(Vote, self).__init__()

@@ -1,6 +1,8 @@
 from .models import Movie, Vote
 from . import db
 
+from functools import wraps
+
 from flask import Blueprint, jsonify
 from flask.ext.security import current_user
 import json
@@ -8,10 +10,38 @@ import json
 module = Blueprint('api', __name__)
 
 
+def add_headers(headers):
+    def pre_inner(func):
+        @wraps(func)
+        def inner(*args, **kwargs):
+            r = func(*args, **kwargs)
+            print type(r), r
+            for header in headers:
+                r.headers[header[0]] = header[1]
+            return r
+        return inner
+    return pre_inner
+
+
 @module.route('/api/movies')
 def movies():
-    ms = db.session.query(Movie).filter(Movie.status > 0).all()
+    ms = db.session.query(Movie).filter(Movie.status > 1).all()
     return json.dumps([o.to_json for o in ms])
+
+
+@module.route('/api/shortlist')
+def shortliist():
+    ms = db.session.query(Movie).filter(Movie.status > 2).all()
+    return json.dumps([o.to_json for o in ms])
+
+
+@module.route('/api/personal')
+def perosnal():
+    if current_user.is_anonymous():
+        return []
+    else:
+        ms = db.session.query(Movie).filter(Movie.user_id == current_user.id).all()
+        return json.dumps([o.to_json for o in ms])
 
 
 @module.route('/api/movie/<int:movie_id>')
@@ -49,6 +79,8 @@ def timeline():
             'text': o.description,
             'original_pic': o.pic,
             'iframe': o.url,
-            'created_at': 'n/a'
+            'created_at': 'n/a',
+            'rate': o.rate,
+            'user_id': o.rate
         } for o in ms]
     })

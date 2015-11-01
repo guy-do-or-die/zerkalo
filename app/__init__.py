@@ -10,7 +10,8 @@ ROOT = os.path.dirname(os.path.dirname(__file__))
 app = Flask(__name__, static_folder='static')
 
 app.config.from_object('settings')
-app.config.from_envvar('LOCAL_SETTINGS', silent=True)
+if os.path.exists(os.path.join(ROOT, 'settings_local.py')):
+    app.config.from_object('settings_local')
 
 db = SQLAlchemy(app)
 

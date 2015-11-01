@@ -74,7 +74,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "1fc5ac488208151dc39f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0904b1aa43ad34b71745"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -16278,7 +16278,7 @@
 /* 17 */
 /***/ function(module, exports) {
 
-	module.exports = "{{#timeline}}\n<div data-id=\"{{id}}\" data-iframe=\"{{iframe}}\" class=\"card ks-facebook-card\">\n\n    <div class=\"card-content\">\n        <div class=\"card-content-inner\">\n            {{#if original_pic}}\n            <div class=\"item-image\">\n                <div class=\"item-image-box\" data-pic=\"{{original_pic}}\" style=\"background-image: url({{original_pic}})\"></div>\n                <div class=\"item-title\">{{title}}</div>\n            </div>\n            {{/if}}\n\n            <p>{{text}}</p>\n        </div>\n    </div>\n    <!--<div class=\"card-footer\"><a href=\"#\" class=\"link\">{{t i18n=\"timeline.forward\"}}</a><a href=\"#\" class=\"link\">{{t i18n=\"timeline.comment\"}}</a><a href=\"#\" class=\"link\">{{t i18n=\"timeline.like\"}}</a></div>-->\n</div>\n{{/timeline}}";
+	module.exports = "{{#timeline}}\n<div data-id=\"{{id}}\" data-iframe=\"{{iframe}}\" class=\"card ks-facebook-card\">\n\n    <div class=\"card-content\">\n        <div class=\"card-content-inner\">\n            {{#if original_pic}}\n            <div class=\"item-image\">\n                <div class=\"item-image-box\" data-pic=\"{{original_pic}}\" style=\"background-image: url({{original_pic}})\"></div>\n                <div class=\"item-title\">{{title}}</div>\n            </div>\n            {{/if}}\n\n            <p>{{text}}</p>\n        </div>\n    </div>\n    <!--<div class=\"card-footer\"><a href=\"#\" class=\"link\">{{t i18n=\"timeline.forward\"}}</a><a href=\"#\" class=\"link\">{{t i18n=\"timeline.comment\"}}</a><a href=\"#\" class=\"link\">{{t i18n=\"timeline.like\"}}</a></div>-->\n</div>\n{{/timeline}}\n";
 
 /***/ },
 /* 18 */
@@ -16937,7 +16937,7 @@
 /* 36 */
 /***/ function(module, exports) {
 
-	module.exports = "{{#each comments}}\n<li class=\"comment-item\">\n    <div class=\"avatar\">\n        <img src=\"http://lorempixel.com/68/68/people/{{avatar}}/\" alt=\"\">\n    </div>\n    <div class=\"comment-detail\">\n        <div class=\"name\">{{name}}</div>\n        <div class=\"text\">{{text}}</div>\n        <div class=\"time\">{{rtime}}</div>\n    </div>\n</li>\n{{else}}\n<div class=\"none-comment\">\n    <i class=\"icon ios7-chatboxes-outline\"></i>\n    <p>{{t i18n=\"i18n.comment.empty_comment\"}}</p>\n</div>\n{{/each}}";
+	module.exports = "{{#each comments}}\n<li class=\"comment-item\">\n    <div class=\"avatar\">\n        <img src=\"http://lorempixel.com/68/68/people/{{avatar}}/\" alt=\"\">\n    </div>\n    <div class=\"comment-detail\">\n        <div class=\"name\">{{name}}</div>\n        <div class=\"text\">{{text}}</div>\n        <div class=\"time\">{{rtime}}</div>\n    </div>\n</li>\n{{else}}\n<div class=\"none-comment\">\n    <i class=\"icon ios7-chatboxes-outline\"></i>\n    <p>{{t i18n=\"i18n.comment.empty_comment\"}}</p>\n</div>\n{{/each}}\n";
 
 /***/ },
 /* 37 */
@@ -16949,7 +16949,7 @@
 /* 38 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"card ks-facebook-card\">\n    <!--<div class=\"card-header\">-->\n        <!--<div class=\"ks-facebook-avatar\"><img src=\"http://lorempixel.com/68/68/people/{{avatar}}/\" width=\"34\" height=\"34\"></div>-->\n        <!--<div class=\"ks-facebook-name\">{{nickname}}</div>-->\n        <!--<div class=\"ks-facebook-date\">{{time}}</div>-->\n    <!--</div>-->\n    <div class=\"card-content\">\n        <div class=\"card-content-inner\">\n            <iframe width=\"100%\" height=\"250\" src=\"{{iframe}}\" frameborder=\"0\"\n                    allowfullscreen></iframe>\n            <!--<div class=\"item-image\">-->\n                <!--<div class=\"item-image-box\" style=\"background-image: url({{original_pic}})\"></div>-->\n                <!--<div class=\"item-title\">{{title}}</div>-->\n            <!--</div>-->\n\n            <p>{{text}}</p>\n        </div>\n    </div>\n</div>";
+	module.exports = "<div class=\"card ks-facebook-card\">\n    <!--<div class=\"card-header\">-->\n        <!--<div class=\"ks-facebook-avatar\"><img src=\"http://lorempixel.com/68/68/people/{{avatar}}/\" width=\"34\" height=\"34\"></div>-->\n        <!--<div class=\"ks-facebook-name\">{{nickname}}</div>-->\n        <!--<div class=\"ks-facebook-date\">{{time}}</div>-->\n    <!--</div>-->\n    <div class=\"card-content\">\n      asdasdasdasdsadasda\n        <div class=\"card-content-inner\">\n            <iframe width=\"100%\" height=\"250\" src=\"{{iframe}}\" frameborder=\"0\"\n                    allowfullscreen></iframe>\n            <!--<div class=\"item-image\">-->\n                <!--<div class=\"item-image-box\" style=\"background-image: url({{original_pic}})\"></div>-->\n                <!--<div class=\"item-title\">{{title}}</div>-->\n            <!--</div>-->\n\n            <p>{{text}}</p>\n        </div>\n    </div>\n</div>\n";
 
 /***/ },
 /* 39 */
