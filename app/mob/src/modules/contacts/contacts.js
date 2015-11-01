@@ -2,28 +2,69 @@ require('./contacts.less');
 
 var appFunc = require('../utils/appFunc'),
     service = require('./service'),
-    template = require('./contacts.tpl.html');
+    template = require('../home/home.tpl.html');
 
 var contacts = {
     init: function(){
         contacts.bindEvents();
     },
     loadContacts: function(){
+        console.log('loadContacts');
         if(contacts.beforeLoadContacts()) {
-            hiApp.searchbar('#contactView .searchbar',{
-                searchList: '.contacts-list',
-                searchIn: '.item-title'
-            });
+            //hiApp.searchbar('#contactView .searchbar',{
+            //    searchList: '.contacts-list',
+            //    searchIn: '.item-title'
+            //});
 
-            service.loadContacts(function(c){
+            service.loadContacts(function(tl, type){
                 setTimeout(function(){
+                    //var renderData = {
+                    //    contacts: c
+                    //};
+                    //console.log(renderData);
+                    //var output = appFunc.renderTpl(template, renderData);
+                    //$$('#contactView .contacts-list ul').html(output);
+                    //
+                    hiApp.hideIndicator();
+                    //var renderData = {
+                    //    timeline: tl,
+                    //    finalText: function(){
+                    //        return appFunc.matchUrl(this.text);
+                    //    },
+                    //    time: function(){
+                    //        return appFunc.timeFormat(this.created_at);
+                    //    }
+                    //};
+                    //var output = appFunc.renderTpl(template, renderData);
+                    //if(type === 'prepend'){
+                    //    $$('#contactView').find('.home-timeline').prepend(output);
+                    //}else if(type === 'append') {
+                    //    $$('#contactView').find('.home-timeline').append(output);
+                    //}else {
+                    //    $$('#contactView').find('.home-timeline').html(output);
+                    //}
+
                     var renderData = {
-                        contacts: c
+                        timeline: tl,
+                        finalText: function(){
+                            return appFunc.matchUrl(this.text);
+                        },
+                        time: function(){
+                            return appFunc.timeFormat(this.created_at);
+                        }
                     };
                     var output = appFunc.renderTpl(template, renderData);
-                    $$('#contactView .contacts-list ul').html(output);
+                    //$$('#contactView').html(output);
+                    $$('#contactView').find('.home-timeline').html(output);
+                    //console.log(template);
+                    //if(type === 'prepend'){
+                    //    $$('#contactView').find('.home-timeline').prepend(output);
+                    //}else if(type === 'append') {
+                    //    $$('#contactView').find('.home-timeline').append(output);
+                    //}else {
+                    //    $$('#contactView').find('.home-timeline').html(output);
+                    //}
 
-                    hiApp.hideIndicator();
 
                 },500);
             });

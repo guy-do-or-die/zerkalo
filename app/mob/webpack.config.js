@@ -12,8 +12,8 @@ var config = {
     },
     resolve: {alias: {}},
     output: {
-        path: path.join(__dirname, '../static'),
-        contentBase: 'static/',
+        path: path.join(__dirname, 'www'),
+        contentBase: 'www/',
         filename: 'app.js'
         //chunkFilename: '[chunkhash].build.js'
     },

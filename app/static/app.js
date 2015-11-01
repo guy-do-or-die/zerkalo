@@ -17,7 +17,7 @@
 /******/ 		if(parentJsonpFunction) parentJsonpFunction(chunkIds, moreModules);
 /******/ 		while(callbacks.length)
 /******/ 			callbacks.shift().call(null, __webpack_require__);
-
+/******/
 /******/ 	};
 /******/ 	var parentHotUpdateCallback = this["webpackHotUpdate"];
 /******/ 	this["webpackHotUpdate"] = 
@@ -70,11 +70,11 @@
 /******/ 			}
 /******/ 		};
 /******/ 	}
-
+/******/
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2618ffe4ca338be95b16"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a260ab45a2466c1cb691"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -516,24 +516,24 @@
 /******/ 		hotSetStatus("idle");
 /******/ 		callback(null, outdatedModules);
 /******/ 	}
-
+/******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-
+/******/
 /******/ 	// object to store loaded and loading chunks
 /******/ 	// "0" means "already loaded"
 /******/ 	// Array means "loading", array contains callbacks
 /******/ 	var installedChunks = {
 /******/ 		0:0
 /******/ 	};
-
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-
+/******/
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-
+/******/
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
@@ -543,24 +543,24 @@
 /******/ 			parents: hotCurrentParents,
 /******/ 			children: []
 /******/ 		};
-
+/******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, hotCreateRequire(moduleId));
-
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-
+/******/
 /******/ 	// This file contains only the entry chunk.
 /******/ 	// The chunk loading function for additional chunks
 /******/ 	__webpack_require__.e = function requireEnsure(chunkId, callback) {
 /******/ 		// "0" is the signal for "already loaded"
 /******/ 		if(installedChunks[chunkId] === 0)
 /******/ 			return callback.call(null, __webpack_require__);
-
+/******/
 /******/ 		// an array means "currently loading".
 /******/ 		if(installedChunks[chunkId] !== undefined) {
 /******/ 			installedChunks[chunkId].push(callback);
@@ -572,24 +572,24 @@
 /******/ 			script.type = 'text/javascript';
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
-
+/******/
 /******/ 			script.src = __webpack_require__.p + "" + chunkId + ".app.js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
-
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-
+/******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-
+/******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
-
+/******/
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
-
+/******/
 /******/ 	// Load entry module and return exports
 /******/ 	return hotCreateRequire(0)(0);
 /******/ })
@@ -609,12 +609,12 @@
 	__webpack_require__(4);
 	__webpack_require__(5);
 	__webpack_require__(6);
-
+	
 	var appFunc = __webpack_require__(7),
 	    appService = __webpack_require__(8),
 	    router = __webpack_require__(9),
 	    index = __webpack_require__(10);
-
+	
 	var app = {
 	    initialize: function() {
 	        this.bindEvents();
@@ -638,7 +638,7 @@
 	    },
 	    initMainView:function(){
 	        var lang = appService.getLocal();
-
+	
 	        switch (lang){
 	            case 'en-us':
 	                __webpack_require__.e/* require */(1, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(48)]; (function(lang){
@@ -653,15 +653,15 @@
 	                }.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));});
 	                break;
 	        }
-
+	
 	    },
 	    initFramework7: function(){
-
+	
 	        //Register custom Template7 helpers
 	        Template7.registerHelper('t', function (options){
 	            var key = options.hash.i18n || '';
 	            var keys = key.split('.');
-
+	
 	            var value;
 	            for (var idx = 0, size = keys.length; idx < size; idx++)
 	            {
@@ -671,11 +671,11 @@
 	                } else {
 	                    value = i18n[keys[idx]];
 	                }
-
+	
 	            }
 	            return value;
 	        });
-
+	
 	        window.$$ = Dom7;
 	        window.hiApp = new Framework7({
 	            pushState: false,
@@ -712,25 +712,25 @@
 	                }
 	            }
 	        });
-
+	
 	        window.homeF7View = hiApp.addView('#homeView', {
 	            dynamicNavbar: true
 	        });
-
+	
 	        hiApp.addView('#contactView', {
 	            dynamicNavbar: true
 	        });
-
+	
 	        hiApp.addView('#settingView', {
 	            dynamicNavbar: true
 	        });
-
+	
 	        // init app
 	        router.init();
 	        index.init();
 	    }
 	};
-
+	
 	app.initialize();
 
 
@@ -753,7 +753,7 @@
 	 * Released on: July 18, 2015
 	 */
 	(function () {
-
+	
 	    'use strict';
 	    /*===========================
 	    Framework 7
@@ -908,7 +908,7 @@
 	    
 	        
 	    
-
+	
 	        /*======================================================
 	        ************   Views   ************
 	        ======================================================*/
@@ -1521,7 +1521,7 @@
 	            return undefined;
 	        };
 	        
-
+	
 	        /*======================================================
 	        ************   Navbars && Toolbars   ************
 	        ======================================================*/
@@ -1727,7 +1727,7 @@
 	            });
 	        };
 	        
-
+	
 	        /*======================================================
 	        ************   Searchbar   ************
 	        ======================================================*/
@@ -2170,7 +2170,7 @@
 	                container.once('navbarBeforeRemove', onBeforeRemove);
 	            }
 	        };
-
+	
 	        /*======================================================
 	        ************   Messagebar   ************
 	        ======================================================*/
@@ -2310,7 +2310,7 @@
 	                pageContainer.on('pageBeforeRemove', pageBeforeRemove);
 	            }
 	        };
-
+	
 	        /*======================================================
 	        ************   XHR   ************
 	        ======================================================*/
@@ -2377,7 +2377,7 @@
 	            return app.xhr;
 	        };
 	        
-
+	
 	        /*======================================================
 	        ************   Pages   ************
 	        ======================================================*/
@@ -2693,7 +2693,7 @@
 	            }
 	            app.pageInitCallback(view, {pageContainer: pageContainer[0], url: url, position: 'center'});
 	        };
-
+	
 	        /*======================================================
 	        ************   Navigation / Router   ************
 	        ======================================================*/
@@ -3832,7 +3832,7 @@
 	            }
 	        };
 	        
-
+	
 	        /*======================================================
 	        ************   Modals   ************
 	        ======================================================*/
@@ -4446,7 +4446,7 @@
 	            return true;
 	        };
 	        
-
+	
 	        /*======================================================
 	        ************   Panels   ************
 	        ======================================================*/
@@ -4763,7 +4763,7 @@
 	            $(document).on(app.touchEvents.end, handleTouchEnd);
 	        };
 	        
-
+	
 	        /*======================================================
 	        ************   Image Lazy Loading   ************
 	        ************   Based on solution by Marc Godard, https://github.com/MarcGodard   ************
@@ -4906,7 +4906,7 @@
 	                pageContainer.trigger('lazy');
 	            }
 	        };
-
+	
 	        /*======================================================
 	        ************   Material Preloader   ************
 	        ======================================================*/
@@ -4917,7 +4917,7 @@
 	                }
 	            });
 	        };
-
+	
 	        /*======================================================
 	        ************   Messages   ************
 	        ======================================================*/
@@ -5133,7 +5133,7 @@
 	            }
 	        };
 	        
-
+	
 	        /*===============================================================================
 	        ************   Swipeout Actions (Swipe to delete)   ************
 	        ===============================================================================*/
@@ -5521,7 +5521,7 @@
 	            el.find('.swipeout-content').transform('translate3d(' + translate + ',0,0)');
 	        };
 	        
-
+	
 	        /*===============================================================================
 	        ************   Sortable   ************
 	        ===============================================================================*/
@@ -5652,7 +5652,7 @@
 	                
 	        };
 	        
-
+	
 	        /*===============================================================================
 	        ************   Smart Select   ************
 	        ===============================================================================*/
@@ -6012,7 +6012,7 @@
 	            }
 	        };
 	        
-
+	
 	        /*===============================================================================
 	        ************   Virtual List   ************
 	        ===============================================================================*/
@@ -6465,7 +6465,7 @@
 	                }
 	            }
 	        };
-
+	
 	        /*======================================================
 	        ************   Pull To Refresh   ************
 	        ======================================================*/
@@ -6672,7 +6672,7 @@
 	            if (pullToRefreshContent[0].f7DestroyPullToRefresh) pullToRefreshContent[0].f7DestroyPullToRefresh();
 	        };
 	        
-
+	
 	        /* ===============================================================================
 	        ************   Infinite Scroll   ************
 	        =============================================================================== */
@@ -6725,7 +6725,7 @@
 	            }
 	            pageContainer.on('pageBeforeRemove', detachEvents);
 	        };
-
+	
 	        /*=============================================================
 	        ************   Hide/show Toolbar/Navbar on scroll   ************
 	        =============================================================*/
@@ -6841,7 +6841,7 @@
 	            if (!handler) return;
 	            scrollContent.off('scroll', scrollContent[0].f7ScrollToolbarsHandler);
 	        };
-
+	
 	        /*======================================================
 	        ************   Material Preloader   ************
 	        ======================================================*/
@@ -6856,7 +6856,7 @@
 	                    .transform('translate3d(' + tabbar.find('.tab-link.active').index() * 100 + '%,0,0)');
 	            }
 	        };
-
+	
 	        /* ===============================================================================
 	        ************   Tabs   ************
 	        =============================================================================== */
@@ -6951,7 +6951,7 @@
 	            
 	            return true;
 	        };
-
+	
 	        /*===============================================================================
 	        ************   Accordion   ************
 	        ===============================================================================*/
@@ -7012,7 +7012,7 @@
 	            });
 	            item.trigger('close');
 	        };
-
+	
 	        /*===============================================================================
 	        ************   Fast Clicks   ************
 	        ************   Inspired by https://github.com/ftlabs/fastclick   ************
@@ -7493,7 +7493,7 @@
 	                
 	        };
 	        
-
+	
 	        /*===============================================================================
 	        ************   Handle clicks and make them fast (on tap);   ************
 	        ===============================================================================*/
@@ -7820,7 +7820,7 @@
 	            }
 	        };
 	        
-
+	
 	        /*======================================================
 	        ************   App Resize Actions   ************
 	        ======================================================*/
@@ -7849,7 +7849,7 @@
 	            _fixIpadBodyScrolLeft();
 	        };
 	        
-
+	
 	        /*===============================================================================
 	        ************   Store and parse forms data   ************
 	        ===============================================================================*/
@@ -8012,7 +8012,7 @@
 	            }
 	            pageContainer.on('pageBeforeRemove', pageBeforeRemove);
 	        };
-
+	
 	        /*===============================================================================
 	        ************   Ajax submit for forms   ************
 	        ===============================================================================*/
@@ -8050,7 +8050,7 @@
 	        });
 	        
 	        
-
+	
 	        /*===============================================================================
 	        ************   Resizable textarea   ************
 	        ===============================================================================*/
@@ -8088,7 +8088,7 @@
 	                app.resizableTextarea(this);
 	            });
 	        };
-
+	
 	        /*======================================================
 	        ************   Material Text Inputs   ************
 	        ======================================================*/
@@ -8137,7 +8137,7 @@
 	            $(document).on('focus', '.item-input input, .item-input select, .item-input textarea, input, textarea, select', addFocusState, true);
 	            $(document).on('blur', '.item-input input, .item-input select, .item-input textarea, input, textarea, select', removeFocusState, true);
 	        };
-
+	
 	        /*======================================================
 	        ************   Handle Browser's History   ************
 	        ======================================================*/
@@ -8250,7 +8250,7 @@
 	            $(window).on('popstate', handlePopState);
 	        };
 	        
-
+	
 	        /*===========================
 	        Framework7 Swiper Additions
 	        ===========================*/
@@ -8293,7 +8293,7 @@
 	            }
 	        };
 	        
-
+	
 	        /*======================================================
 	        ************   Photo Browser   ************
 	        ======================================================*/
@@ -8906,7 +8906,7 @@
 	            return new PhotoBrowser(params);
 	        };
 	        
-
+	
 	        /*======================================================
 	        ************   Picker   ************
 	        ======================================================*/
@@ -9506,7 +9506,7 @@
 	        app.picker = function (params) {
 	            return new Picker(params);
 	        };
-
+	
 	        /*======================================================
 	        ************   Calendar   ************
 	        ======================================================*/
@@ -10380,7 +10380,7 @@
 	            return new Calendar(params);
 	        };
 	        
-
+	
 	        /*======================================================
 	        ************   Notifications   ************
 	        ======================================================*/
@@ -10537,7 +10537,7 @@
 	                }
 	            });
 	        };
-
+	
 	        /*===========================
 	        Compile Template7 Templates On App Init
 	        ===========================*/
@@ -10560,7 +10560,7 @@
 	            });
 	        };
 	        
-
+	
 	        /*=======================================
 	        ************   Plugins API   ************
 	        =======================================*/
@@ -10602,7 +10602,7 @@
 	        };
 	        
 	        
-
+	
 	        /*======================================================
 	        ************   App Init   ************
 	        ======================================================*/
@@ -10656,12 +10656,12 @@
 	        };
 	        if (app.params.init) app.init();
 	        
-
+	
 	        //Return instance        
 	        return app;
 	    };
 	    
-
+	
 	    /*===========================
 	    Dom7 Library
 	    ===========================*/
@@ -10727,7 +10727,7 @@
 	            }
 	            return new Dom7(arr);
 	        };
-
+	
 	        Dom7.prototype = {
 	            // Classes and attriutes
 	            addClass: function (className) {
@@ -11467,7 +11467,7 @@
 	            }
 	        })();
 	        
-
+	
 	        // Global Ajax Setup
 	        var globalAjaxOptions = {};
 	        $.ajaxSetup = function (options) {
@@ -11742,7 +11742,7 @@
 	            }
 	        })();
 	        
-
+	
 	        // DOM Library Utilites
 	        $.parseUrlQuery = function (url) {
 	            var query = {}, i, params, param;
@@ -11985,7 +11985,7 @@
 	            }
 	            return dom.scrollTo(left, undefined, duration, easing, callback);
 	        };
-
+	
 	        return $;
 	    })();
 	    
@@ -11998,7 +11998,7 @@
 	    // Export to Window
 	    window.Dom7 = Dom7;
 	    
-
+	
 	    /*===========================
 	    Features Support Detection
 	    ===========================*/
@@ -12011,7 +12011,7 @@
 	        return support;
 	    })();
 	    
-
+	
 	    /*===========================
 	    Device/OS Detection
 	    ===========================*/
@@ -12117,13 +12117,13 @@
 	        return device;
 	    })();
 	    
-
+	
 	    /*===========================
 	    Plugins prototype
 	    ===========================*/
 	    Framework7.prototype.plugins = {};
 	    
-
+	
 	    /*===========================
 	    Template7 Template engine
 	    ===========================*/
@@ -12578,7 +12578,7 @@
 	        t7.partials = Template7.prototype.partials;
 	        return t7;
 	    })();
-
+	
 	    /*===========================
 	    Swiper
 	    ===========================*/
@@ -15546,9 +15546,9 @@
 	        plugins: {}
 	    };
 	    
-
+	
 	})();
-
+	
 	//# sourceMappingURL=framework7.js.map
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
@@ -15557,13 +15557,13 @@
 /***/ function(module, exports) {
 
 	// shim for using process in browser
-
+	
 	var process = module.exports = {};
 	var queue = [];
 	var draining = false;
 	var currentQueue;
 	var queueIndex = -1;
-
+	
 	function cleanUpNextTick() {
 	    draining = false;
 	    if (currentQueue.length) {
@@ -15575,14 +15575,14 @@
 	        drainQueue();
 	    }
 	}
-
+	
 	function drainQueue() {
 	    if (draining) {
 	        return;
 	    }
 	    var timeout = setTimeout(cleanUpNextTick);
 	    draining = true;
-
+	
 	    var len = queue.length;
 	    while(len) {
 	        currentQueue = queue;
@@ -15599,7 +15599,7 @@
 	    draining = false;
 	    clearTimeout(timeout);
 	}
-
+	
 	process.nextTick = function (fun) {
 	    var args = new Array(arguments.length - 1);
 	    if (arguments.length > 1) {
@@ -15612,7 +15612,7 @@
 	        setTimeout(drainQueue, 0);
 	    }
 	};
-
+	
 	// v8 likes predictible objects
 	function Item(fun, array) {
 	    this.fun = fun;
@@ -15627,9 +15627,9 @@
 	process.argv = [];
 	process.version = ''; // empty string to avoid regexp issues
 	process.versions = {};
-
+	
 	function noop() {}
-
+	
 	process.on = noop;
 	process.addListener = noop;
 	process.once = noop;
@@ -15637,11 +15637,11 @@
 	process.removeListener = noop;
 	process.removeAllListeners = noop;
 	process.emit = noop;
-
+	
 	process.binding = function (name) {
 	    throw new Error('process.binding is not supported');
 	};
-
+	
 	process.cwd = function () { return '/' };
 	process.chdir = function (dir) {
 	    throw new Error('process.chdir is not supported');
@@ -15672,50 +15672,50 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(2);
-
+	
 	module.exports = {
-
+	
 	    isPhonegap: function() {
 	        return (typeof(cordova) !== 'undefined' || typeof(phonegap) !== 'undefined');
 	    },
-
+	
 	    renderTpl: function(markup,renderData){
 	        var compiledTemplate = Template7.compile(markup);
 	        return compiledTemplate(renderData);
 	    },
-
+	
 	    isEmail: function(str){
 	        var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
 	        return reg.test(str);
 	    },
-
+	
 	    getPageNameInUrl: function(url){
 	        url = url || '';
 	        var arr = url.split('.');
 	        return arr[0];
 	    },
-
+	
 	    isEmpty: function(obj) {
 	        for(var prop in obj) {
 	            if(obj.hasOwnProperty(prop))
 	                return false;
 	        }
-
+	
 	        return true;
 	    },
-
+	
 	    hideToolbar: function() {
 	        hiApp.hideToolbar('.toolbar');
 	    },
-
+	
 	    showToolbar: function() {
 	        hiApp.showToolbar('.toolbar');
 	    },
-
+	
 	    timeFormat: function(ms){
-
+	
 	        ms = ms * 1000;
-
+	
 	        var d_second,d_minutes, d_hours, d_days;
 	        var timeNow = new Date().getTime();
 	        var d = (timeNow - ms)/1000;
@@ -15736,7 +15736,7 @@
 	            s.setTime(ms);
 	            return (s.getFullYear() + '-' + f(s.getMonth() + 1) + '-' + f(s.getDate()) + ' '+ f(s.getHours()) + ':'+ f(s.getMinutes()));
 	        }
-
+	
 	        function f(n){
 	            if(n < 10)
 	                return '0' + n;
@@ -15744,7 +15744,7 @@
 	                return n;
 	        }
 	    },
-
+	
 	    getCharLength: function(str){
 	        var iLength = 0;
 	        for(var i = 0;i<str.length;i++)
@@ -15760,10 +15760,10 @@
 	        }
 	        return iLength;
 	    },
-
+	
 	    matchUrl: function(string){
 	        var reg = /((http|ftp|https):\/\/)?[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&;:\/~\+#]*[\w\-\@?^=%&;\/~\+#])?/g;
-
+	
 	        string = string.replace(reg,function(a){
 	            if(a.indexOf('http') !== -1 || a.indexOf('ftp') !== -1){
 	                return '<a href=\"#\" onclick=\"event.stopPropagation();window.open(\'' + a + '\',\'_blank\')\">' + a + '</a>';
@@ -15775,7 +15775,7 @@
 	        });
 	        return string;
 	    },
-
+	
 	    bindEvents: function(bindings) {
 	        for (var i in bindings) {
 	            if(bindings[i].selector) {
@@ -15813,7 +15813,7 @@
 	    aboutModule = __webpack_require__(40),
 	    languageModule = __webpack_require__(42),
 	    messageModule = __webpack_require__(44);
-
+	
 	module.exports = {
 	    init: function() {
 	        var that = this;
@@ -15821,7 +15821,7 @@
 	            var page = e.detail.page;
 	            that.pageBeforeInit(page);
 	        });
-
+	
 	        $$(document).on('pageAfterAnimation', function (e) {
 	            var page = e.detail.page;
 	            that.pageAfterAnimation(page);
@@ -15830,7 +15830,7 @@
 	    pageAfterAnimation: function(page){
 	        var name = page.name;
 	        var from = page.from;
-
+	
 	        if(name === 'homeView' || name === 'contactView' || name === 'setting' ){
 	            if(from === 'left'){
 	                appFunc.showToolbar();
@@ -15841,7 +15841,7 @@
 	        var name = page.name;
 	        var query = page.query;
 	        console.log(page);
-
+	
 	        switch (name) {
 	            case 'about':
 	                aboutModule.init();
@@ -15870,12 +15870,12 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(11);
-
+	
 	var appFunc = __webpack_require__(7),
 	    homeView = __webpack_require__(12),
 	    contactsView = __webpack_require__(24),
 	    settingView = __webpack_require__(28);
-
+	
 	module.exports = {
 	    init: function(){
 	        this.i18next('');
@@ -15883,14 +15883,14 @@
 	        contactsView.init();
 	        settingView.init();
 	    },
-
+	
 	    i18next: function(content){
 	        var that = this;
-
+	
 	        var renderData = {};
-
+	
 	        var output = appFunc.renderTpl(content,renderData);
-
+	
 	        $$('.views .i18n').each(function(){
 	            var value;
 	            var i18nKey = $$(this).data('i18n');
@@ -15904,14 +15904,14 @@
 	                $$(this).html(value);
 	            }
 	        });
-
+	
 	        return output;
 	    },
-
+	
 	    i18nValue: function(key){
-
+	
 	        var keys = key.split('.');
-
+	
 	        var value;
 	        for (var idx = 0, size = keys.length; idx < size; idx++)
 	        {
@@ -15921,7 +15921,7 @@
 	            } else {
 	                value = i18n[keys[idx]];
 	            }
-
+	
 	        }
 	        return value;
 	    }
@@ -15938,12 +15938,12 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(13);
-
+	
 	var service = __webpack_require__(14),
 	    appFunc = __webpack_require__(7),
 	    template = __webpack_require__(17),
 	    inputModule = __webpack_require__(18);
-
+	
 	var home = {
 	    init: function(){
 	        this.getTimeline();
@@ -15951,38 +15951,38 @@
 	    },
 	    getTimeline: function(){
 	        var that = this;
-
+	
 	        service.getTimeline(function(tl){
 	            that.renderTimeline(tl);
-
+	
 	            hiApp.hideIndicator();
-
+	
 	            //Unlock scroll loading status
 	            var ptrContent = $$('#homeView').find('.pull-to-refresh-content');
 	            ptrContent.data('scrollLoading','unloading');
 	        });
 	    },
 	    refreshTimeline: function(){
-
+	
 	        service.refreshTimeline(function(tl){
 	            // Find newest msg id in ptrContent;
-
+	
 	            home.refreshItemTime();
-
+	
 	            var newestId = $$('#homeView').find('.home-timeline .card'). eq(0).data('id');
-
+	
 	            setTimeout(function () {
-
+	
 	                $$('#homeView .refresh-click').find('i').removeClass('ios7-reloading');
-
+	
 	                if(parseInt(newestId) === 48) {
 	                    home.showLoadResult(i18n.index.nothing_loaded);
 	                    hiApp.pullToRefreshDone();
 	                    return false;
 	                }
-
+	
 	                var length = tl.length;
-
+	
 	                if(length >= 15){
 	                    home.renderTimeline(tl);
 	                }else if(length > 0){
@@ -15990,23 +15990,23 @@
 	                }else{
 	                    home.showLoadResult(i18n.index.nothing_loaded);
 	                }
-
+	
 	                //hiApp.pullToRefreshDone();
-
+	
 	            },1500);
-
+	
 	        });
 	    },
 	    infiniteTimeline: function(){
 	        var $this = $$(this);
-
+	
 	        hiApp.showIndicator();
 	        service.infiniteTimeline(function(tl){
 	            var status = $this.data('scrollLoading');
 	            if (status === 'loading') return;
-
+	
 	            $this.data('scrollLoading','loading');
-
+	
 	            var items = $this.find('.home-timeline .card');
 	            var length = items.length;
 	            var lastId = items.eq(length - 1).data('id');
@@ -16014,11 +16014,11 @@
 	                hiApp.detachInfiniteScroll($this);
 	                hiApp.hideIndicator();
 	            }else{
-
+	
 	                setTimeout(function(){
 	                    $this.data('scrollLoading','unloading');
 	                    home.renderTimeline(tl, 'append');
-
+	
 	                    hiApp.hideIndicator();
 	                },1500);
 	            }
@@ -16028,15 +16028,15 @@
 	        setTimeout(function(){
 	            $$('#homeView .refresh-click').find('i').addClass('ios7-reloading');
 	        },350);
-
+	
 	        $$('#homeView .pull-to-refresh-content').scrollTop(0,300);
-
+	
 	        hiApp.pullToRefreshTrigger('#homeView .pull-to-refresh-content');
 	    },
 	    showLoadResult: function(text){
 	        setTimeout(function(){
 	            $$('#homeView .load-result').html(text).css('opacity','1').transition(1000);
-
+	
 	            setTimeout(function(){
 	                $$('#homeView .load-result').css('opacity','0').transition(1000);
 	            },2100);
@@ -16049,17 +16049,17 @@
 	        });
 	    },
 	    photoBrowser: function(){
-
+	
 	        var url = $$(this).attr('src');
-
+	
 	        var myPhotoBrowser = hiApp.photoBrowser({
 	            photos: [url],
 	            toolbar: false,
 	            backLinkText: i18n.global.close
 	        });
-
+	
 	        myPhotoBrowser.open();
-
+	
 	    },
 	    renderTimeline: function(tl, type){
 	        var renderData = {
@@ -16091,7 +16091,7 @@
 	        homeF7View.router.loadPage('page/login.html');
 	    },
 	    bindEvent: function(){
-
+	
 	        var bindings = [{
 	            element: '#homeView',
 	            selector: '.pull-to-refresh-content',
@@ -16125,11 +16125,11 @@
 	            event: 'click',
 	            handler: this.photoBrowser
 	        }];
-
+	
 	        appFunc.bindEvents(bindings);
 	    }
 	};
-
+	
 	module.exports = home;
 
 /***/ },
@@ -16143,7 +16143,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var xhr = __webpack_require__(15);
-
+	
 	module.exports = {
 	    getTimeline: function(callback){
 	        xhr.simpleCall({
@@ -16174,9 +16174,9 @@
 
 	var appFunc = __webpack_require__(7),
 	    networkStatus = __webpack_require__(16);
-
+	
 	module.exports = {
-
+	
 	    search: function(code, array){
 	        for (var i=0;i< array.length; i++){
 	            if (array[i].code === code) {
@@ -16185,69 +16185,69 @@
 	        }
 	        return false;
 	    },
-
+	
 	    getRequestURL: function(options){
 	        //var host = apiServerHost || window.location.host;
 	        //var port = options.port || window.location.port;
 	        var query = options.query || {};
 	        var func = options.func || '';
-
+	
 	        var apiServer = 'http://zerkalo.herokuapp.com/api/' + func + '.json' +
 	            (appFunc.isEmpty(query) ? '' : '?');
-
+	
 	        var name;
 	        for (name in query) {
 	            apiServer += name + '=' + query[name] + '&';
 	        }
-
+	
 	        return apiServer.replace(/&$/gi, '');
 	    },
-
+	
 	    simpleCall: function(options,callback){
 	        var that = this;
-
+	
 	        options = options || {};
 	        options.data = options.data ? options.data : '';
-
+	
 	        //If you access your server api ,please user `post` method.
 	        options.method = options.method || 'GET';
 	        //options.method = options.method || 'POST';
-
+	
 	        if(appFunc.isPhonegap()){
 	            //Check network connection
 	            var network = networkStatus.checkConnection();
 	            if(network === 'NoNetwork'){
-
+	
 	                hiApp.alert(i18n.error.no_network,function(){
 	                    hiApp.hideIndicator();
 	                    hiApp.hidePreloader();
 	                });
-
+	
 	                return false;
 	            }
 	        }
-
+	
 	        $$.ajax({
 	            url: that.getRequestURL(options) ,
 	            method: options.method,
 	            data: options.data,
 	            success:function(data){
 	                data = data ? JSON.parse(data) : '';
-
+	
 	                var codes = [
 	                    {code:10000, message:'Your session is invalid, please login again',path:'/'},
 	                    {code:10001, message:'Unknown error,please login again',path:'tpl/login.html'},
 	                    {code:20001, message:'User name or password does not match',path:'/'}
 	                ];
-
+	
 	                var codeLevel = that.search(data.err_code,codes);
-
+	
 	                if(!codeLevel){
-
+	
 	                    (typeof(callback) === 'function') ? callback(data) : '';
-
+	
 	                }else{
-
+	
 	                    hiApp.alert(codeLevel.message,function(){
 	                        hiApp.hideIndicator();
 	                        hiApp.hidePreloader();
@@ -16255,7 +16255,7 @@
 	                }
 	            }
 	        });
-
+	
 	    }
 	};
 
@@ -16264,10 +16264,10 @@
 /***/ function(module, exports) {
 
 	module.exports = {
-
+	
 	    checkConnection: function () {
 	        var networkState = navigator.connection.type;
-
+	
 	        var states = {};
 	        states[Connection.UNKNOWN]  = 'UNKNOWN';
 	        states[Connection.ETHERNET] = 'ETHERNET';
@@ -16277,7 +16277,7 @@
 	        states[Connection.CELL_4G]  = 'CELL_4G';
 	        states[Connection.CELL]     = 'CELL';
 	        states[Connection.NONE]     = 'NoNetwork';
-
+	
 	        return states[networkState];
 	    }
 	};
@@ -16294,20 +16294,20 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(19);
-
+	
 	var appFunc = __webpack_require__(7),
 	    template = __webpack_require__(20),
 	    camera = __webpack_require__(21),
 	    geo = __webpack_require__(23);
-
+	
 	var inputModule = {
 	    openSendPopup: function(){
-
+	
 	        var output = appFunc.renderTpl(template, {
 	            send_placeholder: i18n.index.send_placeholder
 	        });
 	        hiApp.popup(output);
-
+	
 	        var bindings = [{
 	            element: '#sendWeiboBtn',
 	            event: 'click',
@@ -16325,26 +16325,26 @@
 	            event: 'click',
 	            handler: camera.getPicture
 	        }];
-
+	
 	        appFunc.bindEvents(bindings);
 	    },
 	    postMessage: function(){
 	        var text = $$('#messageText').val();
-
+	
 	        if(appFunc.getCharLength(text) < 4){
 	            hiApp.alert(i18n.index.err_text_too_short);
 	            return;
 	        }
-
+	
 	        var imgSrc = $$('#uploadPicPreview>img').attr('src');
-
+	
 	        if(imgSrc !== 'http://placeholder'){
 	            if(appFunc.isPhonegap()) {
 	                camera.startUpload(imgSrc);
 	            }
 	        }else {
 	            hiApp.showPreloader(i18n.index.sending);
-
+	
 	            setTimeout(function () {
 	                hiApp.hidePreloader();
 	                hiApp.closeModal('.send-popup');
@@ -16353,7 +16353,7 @@
 	        }
 	    }
 	};
-
+	
 	module.exports = inputModule;
 
 /***/ },
@@ -16375,32 +16375,32 @@
 	var appFunc = __webpack_require__(7),
 	    networkStatus = __webpack_require__(16),
 	    fileTransfer = __webpack_require__(22);
-
+	
 	var camera = {
 	    getPicture: function(){
-
+	
 	        if(!appFunc.isPhonegap()){
 	            hiApp.alert(i18n.error.phonegap_only);
 	            return false;
 	        }
-
+	
 	        var $this = $$(this);
-
+	
 	        var netStatus = networkStatus.checkConnection();
-
+	
 	        var quality, sourceType;
 	        if(netStatus === 'WIFI'){
 	            quality = 80;
 	        }else{
 	            quality = 50;
 	        }
-
+	
 	        if(!$this.hasClass('camera')){
 	            sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
 	        }else{
 	            sourceType = Camera.PictureSourceType.CAMERA;
 	        }
-
+	
 	        var cameraOptions = {
 	            quality: quality,
 	            allowEdit: false,
@@ -16409,17 +16409,17 @@
 	            targetWidth: 1280,
 	            targetHeight: 1920
 	        };
-
+	
 	        navigator.camera.getPicture(camera.cameraSuccess,camera.cameraError,cameraOptions);
-
+	
 	    },
-
+	
 	    cameraSuccess: function(fileUrl){
 	        $$('#uploadPicPreview>img').attr('src',fileUrl);
 	        $$('#uploadPicPreview').show();
-
+	
 	    },
-
+	
 	    cameraError: function(message){
 	        setTimeout(function(){
 	            if(message !== 'no image selected'){
@@ -16427,16 +16427,16 @@
 	            }
 	        },500);
 	    },
-
+	
 	    clearCache: function(){
 	        navigator.camera.cleanup();
 	    },
-
+	
 	    startUpload: function(url){
 	        fileTransfer.startUpload(url);
 	    }
 	};
-
+	
 	module.exports = camera;
 
 /***/ },
@@ -16444,12 +16444,12 @@
 /***/ function(module, exports) {
 
 	var ft;
-
+	
 	var fileTransfer = {
 	    startUpload: function(fileUrl){
-
+	
 	        var uploadServer = 'http://up.qiniu.com/';
-
+	
 	        //Upload progress
 	        var text = '<div id="progress" class="progress"><span class="progress-bar"></span></div>';
 	        hiApp.modal({
@@ -16460,7 +16460,7 @@
 	                onClick: fileTransfer.abortUpload
 	            }]
 	        });
-
+	
 	        /* global FileUploadOptions */
 	        var options = new FileUploadOptions();
 	        options.fileKey = 'upfile';
@@ -16469,23 +16469,23 @@
 	        options.params = {};
 	        ft = new FileTransfer();
 	        ft.upload(fileUrl, encodeURI(uploadServer), fileTransfer.uploadSuccess , fileTransfer.uploadFail , options);
-
+	
 	        ft.onprogress = fileTransfer.onprogress;
 	    },
-
+	
 	    uploadSuccess: function (r) {
 	        hiApp.closeModal('.modal');
-
+	
 	        navigator.camera.cleanup();
-
+	
 	        var response = r.response ? JSON.parse(r.response) : '';
-
+	
 	        hiApp.alert(response);
 	    },
-
+	
 	    uploadFail: function (error) {
 	        hiApp.closeModal('.modal');
-
+	
 	        /* global FileTransferError */
 	        var errText;
 	        switch (error.code){
@@ -16505,10 +16505,10 @@
 	                errText = i18n.camera.not_modified_err;
 	                break;
 	        }
-
+	
 	        hiApp.alert(errText);
 	    },
-
+	
 	    onprogress: function(progressEvent){
 	        if (progressEvent.lengthComputable) {
 	            var percent = Math.round((progressEvent.loaded / progressEvent.total) * 100);
@@ -16516,12 +16516,12 @@
 	            $$('#progress').find('.progress-bar').css('width',percent + '%');
 	        }
 	    },
-
+	
 	    abortUpload: function(){
 	        ft.abort();
 	    }
 	};
-
+	
 	module.exports = fileTransfer;
 
 /***/ },
@@ -16530,18 +16530,18 @@
 
 	var GlobalLat = null,
 	    GlobalLong = null;
-
+	
 	var geolocation = {
 	    initGeo: function(){
 	        $$('#geoInfo').removeClass('show').hide();
-
+	
 	        $$('#geoInfo .location>i').removeClass('ios7-location-outline').addClass('preloader');
 	        $$('#geoInfo .location>span').html(i18n.geo.loading_geo);
-
+	
 	        GlobalLat = null;
 	        GlobalLong = null;
 	    },
-
+	
 	    catchGeoInfo: function(){
 	        $$('#geoInfo').addClass('show').show();
 	        if (navigator.geolocation){
@@ -16550,18 +16550,18 @@
 	            $$('#geoInfo .location').html(i18n.geo.position_unavailable);
 	        }
 	    },
-
+	
 	    showPosition: function(position){
 	        var lat = position.coords.latitude;
 	        var long = position.coords.longitude;
-
+	
 	        $$('#geoInfo .location>i').removeClass('preloader').addClass('ios7-location-outline');
 	        $$('#geoInfo .location>span').html(( Math.round(lat * 10000)/10000) + '/' + ( Math.round(long * 10000)/10000) );
-
+	
 	        GlobalLat = lat;
 	        GlobalLong = long;
 	    },
-
+	
 	    showGeoError: function(error){
 	        switch(error.code)
 	        {
@@ -16579,19 +16579,19 @@
 	                break;
 	        }
 	    },
-
+	
 	    getGeo: function(){
 	        return {
 	            lat:GlobalLat,
 	            long:GlobalLong
 	        };
 	    },
-
+	
 	    cleanGeo: function(){
 	        hiApp.confirm(i18n.geo.confirm_clean_geo,geolocation.initGeo);
 	    }
 	};
-
+	
 	module.exports = geolocation;
 
 
@@ -16600,11 +16600,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(25);
-
+	
 	var appFunc = __webpack_require__(7),
 	    service = __webpack_require__(26),
 	    template = __webpack_require__(27);
-
+	
 	var contacts = {
 	    init: function(){
 	        contacts.bindEvents();
@@ -16615,7 +16615,7 @@
 	                searchList: '.contacts-list',
 	                searchIn: '.item-title'
 	            });
-
+	
 	            service.loadContacts(function(c){
 	                setTimeout(function(){
 	                    var renderData = {
@@ -16623,9 +16623,9 @@
 	                    };
 	                    var output = appFunc.renderTpl(template, renderData);
 	                    $$('#contactView .contacts-list ul').html(output);
-
+	
 	                    hiApp.hideIndicator();
-
+	
 	                },500);
 	            });
 	        }
@@ -16644,11 +16644,11 @@
 	            event: 'show',
 	            handler: contacts.loadContacts
 	        }];
-
+	
 	        appFunc.bindEvents(bindings);
 	    }
 	};
-
+	
 	module.exports = contacts;
 
 
@@ -16663,7 +16663,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var xhr = __webpack_require__(15);
-
+	
 	module.exports = {
 	    loadContacts: function(callback) {
 	        xhr.simpleCall({
@@ -16685,28 +16685,28 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(29);
-
+	
 	var appFunc = __webpack_require__(7),
 	    template = __webpack_require__(30);
-
+	
 	var settingView = {
 	    init: function(){
 	        settingView.bindEvents();
 	    },
 	    renderSetting: function(){
 	        if($$('#settingView .page-content')[0]) return;
-
+	
 	        hiApp.showIndicator();
-
+	
 	        var renderData = {
 	            avatarUrl: 'http://cs625121.vk.me/v625121132/2748e/xHdMewH7_eo.jpg',
 	            nickName: 'doncode',
 	            points: '100'
 	        };
-
+	
 	        var output = appFunc.renderTpl(template, renderData);
 	        $$('#settingView .page[data-page="setting"]').html(output);
-
+	
 	        hiApp.hideIndicator();
 	    },
 	    logOut: function(){
@@ -16734,7 +16734,7 @@
 	        appFunc.bindEvents(bindings);
 	    }
 	};
-
+	
 	module.exports = settingView;
 
 /***/ },
@@ -16754,29 +16754,29 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(32);
-
+	
 	var appFunc = __webpack_require__(7),
 	    commentModule = __webpack_require__(33),
 	    template = __webpack_require__(38);
-
+	
 	var id;
-
+	
 	var tweetModule = {
 	    init: function(query){
 	        id = query.id;
 	        appFunc.hideToolbar();
-
+	
 	        this.bindEvents();
-
+	
 	        // render tweet card
 	        this.getTweet();
-
+	
 	        // init comment module
 	        commentModule.init();
 	    },
 	    getTweet: function(){
 	        var $this = $$('#homeView .home-timeline .card[data-id="'+ id +'"]');
-
+	
 	        var item = {
 	            id: $this.data('id'),
 	            title: $this.find('.item-title').html(),
@@ -16786,13 +16786,13 @@
 	            original_pic: $this.find('.item-image-box').data('pic'),
 	            iframe: $this.data('iframe'),
 	        };
-
+	
 	        console.log(item);
 	        if($this.find('.item-image>img')[0])
 	            item.image = $this.find('.item-image img').attr('src');
-
+	
 	        var output = appFunc.renderTpl(template, item);
-
+	
 	        $$('#itemContent').html(output);
 	    },
 	    bindEvents: function(){
@@ -16806,11 +16806,11 @@
 	            event: 'click',
 	            handler: commentModule.commentPopup
 	        }];
-
+	
 	        appFunc.bindEvents(bindings);
 	    }
 	};
-
+	
 	module.exports = tweetModule;
 
 /***/ },
@@ -16828,7 +16828,7 @@
 	    service = __webpack_require__(35),
 	    template = __webpack_require__(36),
 	    popupTpl = __webpack_require__(37);
-
+	
 	var commentModule = {
 	    init: function(){
 	        this.getComments();
@@ -16837,7 +16837,7 @@
 	        service.getComments(function(c){
 	            var random = Math.floor(Math.random()*2);
 	            if(!random) c = null;
-
+	
 	            setTimeout(function(){
 	                var renderData = {
 	                    comments: c,
@@ -16854,7 +16854,7 @@
 	        var renderData = {
 	            comment: i18n.timeline.comment
 	        };
-
+	
 	        if(params.name){
 	            renderData.title = i18n.comment.reply_comment;
 	            renderData.placeholder = i18n.comment.reply + '@' + params.name + ':';
@@ -16862,32 +16862,32 @@
 	            renderData.title = i18n.timeline.comment;
 	            renderData.placeholder = i18n.comment.placeholder;
 	        }
-
+	
 	        var output = appFunc.renderTpl(popupTpl, renderData);
 	        hiApp.popup(output);
-
+	
 	        var bindings = [{
 	            element:'#commentBtn',
 	            event: 'click',
 	            handler: commentModule.sendComment
 	        }];
-
+	
 	        appFunc.bindEvents(bindings);
 	    },
 	    sendComment: function(){
 	        var text = $$('#commentText').val();
-
+	
 	        if(appFunc.getCharLength(text) < 4){
 	            hiApp.alert(i18n.index.err_text_too_short);
 	            return false;
 	        }
-
+	
 	        hiApp.showPreloader(i18n.comment.commenting);
-
+	
 	        setTimeout(function(){
 	            hiApp.hidePreloader();
 	            hiApp.closeModal('.comment-popup');
-
+	
 	            //Refresh comment content
 	        },1500);
 	    },
@@ -16912,12 +16912,12 @@
 	                color: 'red'
 	            }
 	        ];
-
+	
 	        var groups = [buttons1, buttons2];
 	        hiApp.actions(groups);
 	    }
 	};
-
+	
 	module.exports = commentModule;
 
 /***/ },
@@ -16931,7 +16931,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var xhr = __webpack_require__(15);
-
+	
 	module.exports = {
 	    getComments: function(callback) {
 	        xhr.simpleCall({
@@ -16965,11 +16965,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var appFunc = __webpack_require__(7);
-
+	
 	module.exports = {
 	    init: function(){
 	        appFunc.hideToolbar();
-
+	
 	        this.bindEvents();
 	    },
 	    sendFeedback: function(){
@@ -16985,7 +16985,7 @@
 	            event: 'click',
 	            handler: this.sendFeedback
 	        }];
-
+	
 	        appFunc.bindEvents(bindings);
 	    }
 	};
@@ -16995,9 +16995,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(41);
-
+	
 	var appFunc = __webpack_require__(7);
-
+	
 	module.exports = {
 	    init: function(){
 	        appFunc.hideToolbar();
@@ -17015,14 +17015,14 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(43);
-
+	
 	var appFunc = __webpack_require__(7),
 	    appService = __webpack_require__(8);
-
+	
 	module.exports = {
 	    init: function(){
 	        appFunc.hideToolbar();
-
+	
 	        this.bindEvents();
 	        this.setDefaultLanguage();
 	    },
@@ -17056,25 +17056,25 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(45);
-
+	
 	var appFunc = __webpack_require__(7),
 	    service = __webpack_require__(46),
 	    template = __webpack_require__(47);
-
+	
 	var conversationStarted = false,
 	    answers = {},
 	    answerTimeout,
 	    messageLayout;
-
+	
 	module.exports = {
 	    init: function(query){
 	        var that = this;
-
+	
 	        appFunc.hideToolbar();
-
+	
 	        service.getAnswers(function(a){
 	            answers = a;
-
+	
 	            var bindings = [{
 	                element: '.ks-messages-form',
 	                event: 'submit',
@@ -17084,15 +17084,15 @@
 	                event: 'click',
 	                handler: that.triggerSubmit
 	            }];
-
+	
 	            appFunc.bindEvents(bindings);
-
+	
 	            var name = query.nickname;
 	            $$('.chat-name').html(name);
-
+	
 	            // render messages
 	            that.renderMessages();
-
+	
 	            // Init Messages
 	            messageLayout = hiApp.messages('#contactView .messages', {
 	                autoLayout:true
@@ -17101,7 +17101,7 @@
 	    },
 	    renderMessages: function(message){
 	        hiApp.showIndicator();
-
+	
 	        service.getMessages(function(m){
 	            setTimeout(function(){
 	                var renderData = {
@@ -17109,22 +17109,22 @@
 	                };
 	                var output = appFunc.renderTpl(template, renderData);
 	                $$('.page[data-page="message"] .messages').html(output);
-
+	
 	                hiApp.hideIndicator();
-
+	
 	            },600);
 	        });
 	    },
 	    submitMessage: function(e){
-
+	
 	        e.preventDefault();
 	        var input = $$(this).find('.ks-messages-input');
 	        var messageText = input.val();
 	        if (messageText.length === 0) return;
-
+	
 	        // Empty input
 	        input.val('');
-
+	
 	        // Add Message
 	        messageLayout.addMessage({
 	            text: messageText,
@@ -17133,7 +17133,7 @@
 	            time: !conversationStarted ? (new Date()).getHours() + ':' + (new Date()).getMinutes() : false
 	        });
 	        conversationStarted = true;
-
+	
 	        // Add answer after timeout
 	        if (answerTimeout) clearTimeout(answerTimeout);
 	        answerTimeout = setTimeout(function () {
@@ -17160,7 +17160,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var xhr = __webpack_require__(15);
-
+	
 	module.exports = {
 	    getAnswers: function(callback) {
 	        xhr.simpleCall({
@@ -17186,3 +17186,4 @@
 
 /***/ }
 /******/ ]);
+//# sourceMappingURL=app.js.map
