@@ -11,7 +11,9 @@ SQL_ECHO = True
 SQLALCHEMY_POOL_SIZE = 10
 SQLALCHEMY_POOL_RECYCLE = 300
 
-SQLALCHEMY_DATABASE_URI = 'postgresql://zerkalo:zerkalo@localhost/zerkalo'
+# SQLALCHEMY_DATABASE_URI = 'postgresql://zerkalo:zerkalo@localhost/zerkalo'
+SQLALCHEMY_DATABASE_URI = 'postgresql://ldjlupbwgtvcmh:cFo8y5RR2bYcnpvoUdjMDg6sJa@ec2-54-217-202-110.eu-west-1.compute.amazonaws.com/d802g2ejv7g9tb'
+
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 SCHEMA = 'public'
