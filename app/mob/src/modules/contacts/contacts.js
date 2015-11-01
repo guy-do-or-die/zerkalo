@@ -78,12 +78,27 @@ var contacts = {
             return true;
         }
     },
+    openItemPage: function(e){
+        if(e.target.nodeName === 'A' || e.target.nodeName === 'IMG'){
+            return false;
+        }
+        var itemId = $$(this).data('id');
+        console.log('page/tweet.html?id=' + itemId);
+        homeF7View.router.loadPage('page/tweet.html?id=' + itemId);
+    },
     bindEvents: function(){
         var bindings = [{
             element: '#contactView',
             event: 'show',
             handler: contacts.loadContacts
-        }];
+        },
+        {
+            element: '#contactView',
+            selector: '.home-timeline .ks-facebook-card',
+            event: 'click',
+            handler: this.openItemPage
+        }
+        ];
 
         appFunc.bindEvents(bindings);
     }
