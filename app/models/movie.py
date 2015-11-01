@@ -8,7 +8,7 @@ class Movie(db.Model):
     __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String, nullable=False)
+    name = db.Column(db.String)
     description = db.Column(db.Text)
     url = db.Column(db.Text)
     pic = db.Column(db.Text)
@@ -45,6 +45,21 @@ class Vote(db.Model):
         self.movie_id = movie_id
         self.user_id = user_id
         self.weight = weight
+
+    def __repr__(self):
+        return self.name
+
+
+class Nomination(db.Model):
+    __tablename__ = 'nomination'
+    __table_args__ = {'schema': SCHEMA}
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    movie_name = db.Column(db.String)
+    description = db.Column(db.Text)
+    url = db.Column(db.Text)
+    pic = db.Column(db.Text)
 
     def __repr__(self):
         return self.name
