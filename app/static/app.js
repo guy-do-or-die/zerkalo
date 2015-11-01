@@ -17,7 +17,7 @@
 /******/ 		if(parentJsonpFunction) parentJsonpFunction(chunkIds, moreModules);
 /******/ 		while(callbacks.length)
 /******/ 			callbacks.shift().call(null, __webpack_require__);
-/******/
+
 /******/ 	};
 /******/ 	var parentHotUpdateCallback = this["webpackHotUpdate"];
 /******/ 	this["webpackHotUpdate"] = 
@@ -70,7 +70,7 @@
 /******/ 			}
 /******/ 		};
 /******/ 	}
-/******/
+
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
@@ -516,24 +516,24 @@
 /******/ 		hotSetStatus("idle");
 /******/ 		callback(null, outdatedModules);
 /******/ 	}
-/******/
+
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-/******/
+
 /******/ 	// object to store loaded and loading chunks
 /******/ 	// "0" means "already loaded"
 /******/ 	// Array means "loading", array contains callbacks
 /******/ 	var installedChunks = {
 /******/ 		0:0
 /******/ 	};
-/******/
+
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-/******/
+
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-/******/
+
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
@@ -543,24 +543,24 @@
 /******/ 			parents: hotCurrentParents,
 /******/ 			children: []
 /******/ 		};
-/******/
+
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, hotCreateRequire(moduleId));
-/******/
+
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/
+
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+
 /******/ 	// This file contains only the entry chunk.
 /******/ 	// The chunk loading function for additional chunks
 /******/ 	__webpack_require__.e = function requireEnsure(chunkId, callback) {
 /******/ 		// "0" is the signal for "already loaded"
 /******/ 		if(installedChunks[chunkId] === 0)
 /******/ 			return callback.call(null, __webpack_require__);
-/******/
+
 /******/ 		// an array means "currently loading".
 /******/ 		if(installedChunks[chunkId] !== undefined) {
 /******/ 			installedChunks[chunkId].push(callback);
@@ -572,55 +572,49 @@
 /******/ 			script.type = 'text/javascript';
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
-/******/
+
 /******/ 			script.src = __webpack_require__.p + "" + chunkId + ".app.js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
-/******/
+
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-/******/
+
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-/******/
+
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
-/******/
+
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
-/******/
+
 /******/ 	// Load entry module and return exports
 /******/ 	return hotCreateRequire(0)(0);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/*!*****************!*\
-  !*** multi app ***!
-  \*****************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(/*! ./src/modules/main.js */1);
+	module.exports = __webpack_require__(1);
 
 
 /***/ },
 /* 1 */
-/*!*****************************!*\
-  !*** ./src/modules/main.js ***!
-  \*****************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! framework7 */ 2);
-	__webpack_require__(/*! framework7.ios.css */ 4);
-	__webpack_require__(/*! framework7.ios.colors.css */ 5);
-	__webpack_require__(/*! ../style/less/app.less */ 6);
-	
-	var appFunc = __webpack_require__(/*! ./utils/appFunc */ 7),
-	    appService = __webpack_require__(/*! ./services/appService */ 8),
-	    router = __webpack_require__(/*! ./router */ 9),
-	    index = __webpack_require__(/*! ./app/app */ 10);
-	
+	__webpack_require__(2);
+	__webpack_require__(4);
+	__webpack_require__(5);
+	__webpack_require__(6);
+
+	var appFunc = __webpack_require__(7),
+	    appService = __webpack_require__(8),
+	    router = __webpack_require__(9),
+	    index = __webpack_require__(10);
+
 	var app = {
 	    initialize: function() {
 	        this.bindEvents();
@@ -644,30 +638,30 @@
 	    },
 	    initMainView:function(){
 	        var lang = appService.getLocal();
-	
+
 	        switch (lang){
 	            case 'en-us':
-	                __webpack_require__.e/* require */(1, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./lang/en-us */ 48)]; (function(lang){
+	                __webpack_require__.e/* require */(1, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(48)]; (function(lang){
 	                    window.i18n = lang;
 	                    app.initFramework7();
 	                }.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));});
 	                break;
 	            case 'zh-cn':
-	                __webpack_require__.e/* require */(2, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./lang/zh-cn */ 49)]; (function(lang){
+	                __webpack_require__.e/* require */(2, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(49)]; (function(lang){
 	                    window.i18n = lang;
 	                    app.initFramework7();
 	                }.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));});
 	                break;
 	        }
-	
+
 	    },
 	    initFramework7: function(){
-	
+
 	        //Register custom Template7 helpers
 	        Template7.registerHelper('t', function (options){
 	            var key = options.hash.i18n || '';
 	            var keys = key.split('.');
-	
+
 	            var value;
 	            for (var idx = 0, size = keys.length; idx < size; idx++)
 	            {
@@ -677,11 +671,11 @@
 	                } else {
 	                    value = i18n[keys[idx]];
 	                }
-	
+
 	            }
 	            return value;
 	        });
-	
+
 	        window.$$ = Dom7;
 	        window.hiApp = new Framework7({
 	            pushState: false,
@@ -718,33 +712,30 @@
 	                }
 	            }
 	        });
-	
+
 	        window.homeF7View = hiApp.addView('#homeView', {
 	            dynamicNavbar: true
 	        });
-	
+
 	        hiApp.addView('#contactView', {
 	            dynamicNavbar: true
 	        });
-	
+
 	        hiApp.addView('#settingView', {
 	            dynamicNavbar: true
 	        });
-	
+
 	        // init app
 	        router.init();
 	        index.init();
 	    }
 	};
-	
+
 	app.initialize();
 
 
 /***/ },
 /* 2 */
-/*!***********************************************************!*\
-  !*** ./bower_components/framework7/dist/js/framework7.js ***!
-  \***********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -762,7 +753,7 @@
 	 * Released on: July 18, 2015
 	 */
 	(function () {
-	
+
 	    'use strict';
 	    /*===========================
 	    Framework 7
@@ -917,7 +908,7 @@
 	    
 	        
 	    
-	
+
 	        /*======================================================
 	        ************   Views   ************
 	        ======================================================*/
@@ -1530,7 +1521,7 @@
 	            return undefined;
 	        };
 	        
-	
+
 	        /*======================================================
 	        ************   Navbars && Toolbars   ************
 	        ======================================================*/
@@ -1736,7 +1727,7 @@
 	            });
 	        };
 	        
-	
+
 	        /*======================================================
 	        ************   Searchbar   ************
 	        ======================================================*/
@@ -2179,7 +2170,7 @@
 	                container.once('navbarBeforeRemove', onBeforeRemove);
 	            }
 	        };
-	
+
 	        /*======================================================
 	        ************   Messagebar   ************
 	        ======================================================*/
@@ -2319,7 +2310,7 @@
 	                pageContainer.on('pageBeforeRemove', pageBeforeRemove);
 	            }
 	        };
-	
+
 	        /*======================================================
 	        ************   XHR   ************
 	        ======================================================*/
@@ -2386,7 +2377,7 @@
 	            return app.xhr;
 	        };
 	        
-	
+
 	        /*======================================================
 	        ************   Pages   ************
 	        ======================================================*/
@@ -2702,7 +2693,7 @@
 	            }
 	            app.pageInitCallback(view, {pageContainer: pageContainer[0], url: url, position: 'center'});
 	        };
-	
+
 	        /*======================================================
 	        ************   Navigation / Router   ************
 	        ======================================================*/
@@ -3841,7 +3832,7 @@
 	            }
 	        };
 	        
-	
+
 	        /*======================================================
 	        ************   Modals   ************
 	        ======================================================*/
@@ -4455,7 +4446,7 @@
 	            return true;
 	        };
 	        
-	
+
 	        /*======================================================
 	        ************   Panels   ************
 	        ======================================================*/
@@ -4772,7 +4763,7 @@
 	            $(document).on(app.touchEvents.end, handleTouchEnd);
 	        };
 	        
-	
+
 	        /*======================================================
 	        ************   Image Lazy Loading   ************
 	        ************   Based on solution by Marc Godard, https://github.com/MarcGodard   ************
@@ -4915,7 +4906,7 @@
 	                pageContainer.trigger('lazy');
 	            }
 	        };
-	
+
 	        /*======================================================
 	        ************   Material Preloader   ************
 	        ======================================================*/
@@ -4926,7 +4917,7 @@
 	                }
 	            });
 	        };
-	
+
 	        /*======================================================
 	        ************   Messages   ************
 	        ======================================================*/
@@ -5142,7 +5133,7 @@
 	            }
 	        };
 	        
-	
+
 	        /*===============================================================================
 	        ************   Swipeout Actions (Swipe to delete)   ************
 	        ===============================================================================*/
@@ -5530,7 +5521,7 @@
 	            el.find('.swipeout-content').transform('translate3d(' + translate + ',0,0)');
 	        };
 	        
-	
+
 	        /*===============================================================================
 	        ************   Sortable   ************
 	        ===============================================================================*/
@@ -5661,7 +5652,7 @@
 	                
 	        };
 	        
-	
+
 	        /*===============================================================================
 	        ************   Smart Select   ************
 	        ===============================================================================*/
@@ -6021,7 +6012,7 @@
 	            }
 	        };
 	        
-	
+
 	        /*===============================================================================
 	        ************   Virtual List   ************
 	        ===============================================================================*/
@@ -6474,7 +6465,7 @@
 	                }
 	            }
 	        };
-	
+
 	        /*======================================================
 	        ************   Pull To Refresh   ************
 	        ======================================================*/
@@ -6681,7 +6672,7 @@
 	            if (pullToRefreshContent[0].f7DestroyPullToRefresh) pullToRefreshContent[0].f7DestroyPullToRefresh();
 	        };
 	        
-	
+
 	        /* ===============================================================================
 	        ************   Infinite Scroll   ************
 	        =============================================================================== */
@@ -6734,7 +6725,7 @@
 	            }
 	            pageContainer.on('pageBeforeRemove', detachEvents);
 	        };
-	
+
 	        /*=============================================================
 	        ************   Hide/show Toolbar/Navbar on scroll   ************
 	        =============================================================*/
@@ -6850,7 +6841,7 @@
 	            if (!handler) return;
 	            scrollContent.off('scroll', scrollContent[0].f7ScrollToolbarsHandler);
 	        };
-	
+
 	        /*======================================================
 	        ************   Material Preloader   ************
 	        ======================================================*/
@@ -6865,7 +6856,7 @@
 	                    .transform('translate3d(' + tabbar.find('.tab-link.active').index() * 100 + '%,0,0)');
 	            }
 	        };
-	
+
 	        /* ===============================================================================
 	        ************   Tabs   ************
 	        =============================================================================== */
@@ -6960,7 +6951,7 @@
 	            
 	            return true;
 	        };
-	
+
 	        /*===============================================================================
 	        ************   Accordion   ************
 	        ===============================================================================*/
@@ -7021,7 +7012,7 @@
 	            });
 	            item.trigger('close');
 	        };
-	
+
 	        /*===============================================================================
 	        ************   Fast Clicks   ************
 	        ************   Inspired by https://github.com/ftlabs/fastclick   ************
@@ -7502,7 +7493,7 @@
 	                
 	        };
 	        
-	
+
 	        /*===============================================================================
 	        ************   Handle clicks and make them fast (on tap);   ************
 	        ===============================================================================*/
@@ -7829,7 +7820,7 @@
 	            }
 	        };
 	        
-	
+
 	        /*======================================================
 	        ************   App Resize Actions   ************
 	        ======================================================*/
@@ -7858,7 +7849,7 @@
 	            _fixIpadBodyScrolLeft();
 	        };
 	        
-	
+
 	        /*===============================================================================
 	        ************   Store and parse forms data   ************
 	        ===============================================================================*/
@@ -8021,7 +8012,7 @@
 	            }
 	            pageContainer.on('pageBeforeRemove', pageBeforeRemove);
 	        };
-	
+
 	        /*===============================================================================
 	        ************   Ajax submit for forms   ************
 	        ===============================================================================*/
@@ -8059,7 +8050,7 @@
 	        });
 	        
 	        
-	
+
 	        /*===============================================================================
 	        ************   Resizable textarea   ************
 	        ===============================================================================*/
@@ -8097,7 +8088,7 @@
 	                app.resizableTextarea(this);
 	            });
 	        };
-	
+
 	        /*======================================================
 	        ************   Material Text Inputs   ************
 	        ======================================================*/
@@ -8146,7 +8137,7 @@
 	            $(document).on('focus', '.item-input input, .item-input select, .item-input textarea, input, textarea, select', addFocusState, true);
 	            $(document).on('blur', '.item-input input, .item-input select, .item-input textarea, input, textarea, select', removeFocusState, true);
 	        };
-	
+
 	        /*======================================================
 	        ************   Handle Browser's History   ************
 	        ======================================================*/
@@ -8259,7 +8250,7 @@
 	            $(window).on('popstate', handlePopState);
 	        };
 	        
-	
+
 	        /*===========================
 	        Framework7 Swiper Additions
 	        ===========================*/
@@ -8302,7 +8293,7 @@
 	            }
 	        };
 	        
-	
+
 	        /*======================================================
 	        ************   Photo Browser   ************
 	        ======================================================*/
@@ -8915,7 +8906,7 @@
 	            return new PhotoBrowser(params);
 	        };
 	        
-	
+
 	        /*======================================================
 	        ************   Picker   ************
 	        ======================================================*/
@@ -9515,7 +9506,7 @@
 	        app.picker = function (params) {
 	            return new Picker(params);
 	        };
-	
+
 	        /*======================================================
 	        ************   Calendar   ************
 	        ======================================================*/
@@ -10389,7 +10380,7 @@
 	            return new Calendar(params);
 	        };
 	        
-	
+
 	        /*======================================================
 	        ************   Notifications   ************
 	        ======================================================*/
@@ -10546,7 +10537,7 @@
 	                }
 	            });
 	        };
-	
+
 	        /*===========================
 	        Compile Template7 Templates On App Init
 	        ===========================*/
@@ -10569,7 +10560,7 @@
 	            });
 	        };
 	        
-	
+
 	        /*=======================================
 	        ************   Plugins API   ************
 	        =======================================*/
@@ -10611,7 +10602,7 @@
 	        };
 	        
 	        
-	
+
 	        /*======================================================
 	        ************   App Init   ************
 	        ======================================================*/
@@ -10665,12 +10656,12 @@
 	        };
 	        if (app.params.init) app.init();
 	        
-	
+
 	        //Return instance        
 	        return app;
 	    };
 	    
-	
+
 	    /*===========================
 	    Dom7 Library
 	    ===========================*/
@@ -10736,7 +10727,7 @@
 	            }
 	            return new Dom7(arr);
 	        };
-	
+
 	        Dom7.prototype = {
 	            // Classes and attriutes
 	            addClass: function (className) {
@@ -11476,7 +11467,7 @@
 	            }
 	        })();
 	        
-	
+
 	        // Global Ajax Setup
 	        var globalAjaxOptions = {};
 	        $.ajaxSetup = function (options) {
@@ -11751,7 +11742,7 @@
 	            }
 	        })();
 	        
-	
+
 	        // DOM Library Utilites
 	        $.parseUrlQuery = function (url) {
 	            var query = {}, i, params, param;
@@ -11994,7 +11985,7 @@
 	            }
 	            return dom.scrollTo(left, undefined, duration, easing, callback);
 	        };
-	
+
 	        return $;
 	    })();
 	    
@@ -12007,7 +11998,7 @@
 	    // Export to Window
 	    window.Dom7 = Dom7;
 	    
-	
+
 	    /*===========================
 	    Features Support Detection
 	    ===========================*/
@@ -12020,7 +12011,7 @@
 	        return support;
 	    })();
 	    
-	
+
 	    /*===========================
 	    Device/OS Detection
 	    ===========================*/
@@ -12126,13 +12117,13 @@
 	        return device;
 	    })();
 	    
-	
+
 	    /*===========================
 	    Plugins prototype
 	    ===========================*/
 	    Framework7.prototype.plugins = {};
 	    
-	
+
 	    /*===========================
 	    Template7 Template engine
 	    ===========================*/
@@ -12587,7 +12578,7 @@
 	        t7.partials = Template7.prototype.partials;
 	        return t7;
 	    })();
-	
+
 	    /*===========================
 	    Swiper
 	    ===========================*/
@@ -15555,27 +15546,24 @@
 	        plugins: {}
 	    };
 	    
-	
+
 	})();
-	
+
 	//# sourceMappingURL=framework7.js.map
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 3)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
 /* 3 */
-/*!******************************!*\
-  !*** ./~/process/browser.js ***!
-  \******************************/
 /***/ function(module, exports) {
 
 	// shim for using process in browser
-	
+
 	var process = module.exports = {};
 	var queue = [];
 	var draining = false;
 	var currentQueue;
 	var queueIndex = -1;
-	
+
 	function cleanUpNextTick() {
 	    draining = false;
 	    if (currentQueue.length) {
@@ -15587,14 +15575,14 @@
 	        drainQueue();
 	    }
 	}
-	
+
 	function drainQueue() {
 	    if (draining) {
 	        return;
 	    }
 	    var timeout = setTimeout(cleanUpNextTick);
 	    draining = true;
-	
+
 	    var len = queue.length;
 	    while(len) {
 	        currentQueue = queue;
@@ -15611,7 +15599,7 @@
 	    draining = false;
 	    clearTimeout(timeout);
 	}
-	
+
 	process.nextTick = function (fun) {
 	    var args = new Array(arguments.length - 1);
 	    if (arguments.length > 1) {
@@ -15624,7 +15612,7 @@
 	        setTimeout(drainQueue, 0);
 	    }
 	};
-	
+
 	// v8 likes predictible objects
 	function Item(fun, array) {
 	    this.fun = fun;
@@ -15639,9 +15627,9 @@
 	process.argv = [];
 	process.version = ''; // empty string to avoid regexp issues
 	process.versions = {};
-	
+
 	function noop() {}
-	
+
 	process.on = noop;
 	process.addListener = noop;
 	process.once = noop;
@@ -15649,11 +15637,11 @@
 	process.removeListener = noop;
 	process.removeAllListeners = noop;
 	process.emit = noop;
-	
+
 	process.binding = function (name) {
 	    throw new Error('process.binding is not supported');
 	};
-	
+
 	process.cwd = function () { return '/' };
 	process.chdir = function (dir) {
 	    throw new Error('process.chdir is not supported');
@@ -15663,83 +15651,71 @@
 
 /***/ },
 /* 4 */
-/*!*****************************************************************!*\
-  !*** ./bower_components/framework7/dist/css/framework7.ios.css ***!
-  \*****************************************************************/
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 /* 5 */
-/*!************************************************************************!*\
-  !*** ./bower_components/framework7/dist/css/framework7.ios.colors.css ***!
-  \************************************************************************/
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 /* 6 */
-/*!*********************************!*\
-  !*** ./src/style/less/app.less ***!
-  \*********************************/
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 /* 7 */
-/*!**************************************!*\
-  !*** ./src/modules/utils/appFunc.js ***!
-  \**************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! framework7 */ 2);
-	
+	__webpack_require__(2);
+
 	module.exports = {
-	
+
 	    isPhonegap: function() {
 	        return (typeof(cordova) !== 'undefined' || typeof(phonegap) !== 'undefined');
 	    },
-	
+
 	    renderTpl: function(markup,renderData){
 	        var compiledTemplate = Template7.compile(markup);
 	        return compiledTemplate(renderData);
 	    },
-	
+
 	    isEmail: function(str){
 	        var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
 	        return reg.test(str);
 	    },
-	
+
 	    getPageNameInUrl: function(url){
 	        url = url || '';
 	        var arr = url.split('.');
 	        return arr[0];
 	    },
-	
+
 	    isEmpty: function(obj) {
 	        for(var prop in obj) {
 	            if(obj.hasOwnProperty(prop))
 	                return false;
 	        }
-	
+
 	        return true;
 	    },
-	
+
 	    hideToolbar: function() {
 	        hiApp.hideToolbar('.toolbar');
 	    },
-	
+
 	    showToolbar: function() {
 	        hiApp.showToolbar('.toolbar');
 	    },
-	
+
 	    timeFormat: function(ms){
-	
+
 	        ms = ms * 1000;
-	
+
 	        var d_second,d_minutes, d_hours, d_days;
 	        var timeNow = new Date().getTime();
 	        var d = (timeNow - ms)/1000;
@@ -15760,7 +15736,7 @@
 	            s.setTime(ms);
 	            return (s.getFullYear() + '-' + f(s.getMonth() + 1) + '-' + f(s.getDate()) + ' '+ f(s.getHours()) + ':'+ f(s.getMinutes()));
 	        }
-	
+
 	        function f(n){
 	            if(n < 10)
 	                return '0' + n;
@@ -15768,7 +15744,7 @@
 	                return n;
 	        }
 	    },
-	
+
 	    getCharLength: function(str){
 	        var iLength = 0;
 	        for(var i = 0;i<str.length;i++)
@@ -15784,10 +15760,10 @@
 	        }
 	        return iLength;
 	    },
-	
+
 	    matchUrl: function(string){
 	        var reg = /((http|ftp|https):\/\/)?[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&;:\/~\+#]*[\w\-\@?^=%&;\/~\+#])?/g;
-	
+
 	        string = string.replace(reg,function(a){
 	            if(a.indexOf('http') !== -1 || a.indexOf('ftp') !== -1){
 	                return '<a href=\"#\" onclick=\"event.stopPropagation();window.open(\'' + a + '\',\'_blank\')\">' + a + '</a>';
@@ -15799,7 +15775,7 @@
 	        });
 	        return string;
 	    },
-	
+
 	    bindEvents: function(bindings) {
 	        for (var i in bindings) {
 	            if(bindings[i].selector) {
@@ -15815,9 +15791,6 @@
 
 /***/ },
 /* 8 */
-/*!********************************************!*\
-  !*** ./src/modules/services/appService.js ***!
-  \********************************************/
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -15831,19 +15804,16 @@
 
 /***/ },
 /* 9 */
-/*!*******************************!*\
-  !*** ./src/modules/router.js ***!
-  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var index = __webpack_require__(/*! ./app/app */ 10),
-	    appFunc = __webpack_require__(/*! ./utils/appFunc */ 7),
-	    tweetModule = __webpack_require__(/*! ./tweet/tweet */ 31),
-	    feedbackModule = __webpack_require__(/*! ./feedback/feedback */ 39),
-	    aboutModule = __webpack_require__(/*! ./about/about */ 40),
-	    languageModule = __webpack_require__(/*! ./language/language */ 42),
-	    messageModule = __webpack_require__(/*! ./message/message */ 44);
-	
+	var index = __webpack_require__(10),
+	    appFunc = __webpack_require__(7),
+	    tweetModule = __webpack_require__(31),
+	    feedbackModule = __webpack_require__(39),
+	    aboutModule = __webpack_require__(40),
+	    languageModule = __webpack_require__(42),
+	    messageModule = __webpack_require__(44);
+
 	module.exports = {
 	    init: function() {
 	        var that = this;
@@ -15851,7 +15821,7 @@
 	            var page = e.detail.page;
 	            that.pageBeforeInit(page);
 	        });
-	
+
 	        $$(document).on('pageAfterAnimation', function (e) {
 	            var page = e.detail.page;
 	            that.pageAfterAnimation(page);
@@ -15860,7 +15830,7 @@
 	    pageAfterAnimation: function(page){
 	        var name = page.name;
 	        var from = page.from;
-	
+
 	        if(name === 'homeView' || name === 'contactView' || name === 'setting' ){
 	            if(from === 'left'){
 	                appFunc.showToolbar();
@@ -15870,7 +15840,7 @@
 	    pageBeforeInit: function(page) {
 	        var name = page.name;
 	        var query = page.query;
-	
+
 	        switch (name) {
 	            case 'about':
 	                aboutModule.init();
@@ -15893,18 +15863,15 @@
 
 /***/ },
 /* 10 */
-/*!********************************!*\
-  !*** ./src/modules/app/app.js ***!
-  \********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./app.less */ 11);
-	
-	var appFunc = __webpack_require__(/*! ../utils/appFunc */ 7),
-	    homeView = __webpack_require__(/*! ../home/home */ 12),
-	    contactsView = __webpack_require__(/*! ../contacts/contacts */ 24),
-	    settingView = __webpack_require__(/*! ../setting/setting */ 28);
-	
+	__webpack_require__(11);
+
+	var appFunc = __webpack_require__(7),
+	    homeView = __webpack_require__(12),
+	    contactsView = __webpack_require__(24),
+	    settingView = __webpack_require__(28);
+
 	module.exports = {
 	    init: function(){
 	        this.i18next('');
@@ -15912,14 +15879,14 @@
 	        contactsView.init();
 	        settingView.init();
 	    },
-	
+
 	    i18next: function(content){
 	        var that = this;
-	
+
 	        var renderData = {};
-	
+
 	        var output = appFunc.renderTpl(content,renderData);
-	
+
 	        $$('.views .i18n').each(function(){
 	            var value;
 	            var i18nKey = $$(this).data('i18n');
@@ -15933,14 +15900,14 @@
 	                $$(this).html(value);
 	            }
 	        });
-	
+
 	        return output;
 	    },
-	
+
 	    i18nValue: function(key){
-	
+
 	        var keys = key.split('.');
-	
+
 	        var value;
 	        for (var idx = 0, size = keys.length; idx < size; idx++)
 	        {
@@ -15950,7 +15917,7 @@
 	            } else {
 	                value = i18n[keys[idx]];
 	            }
-	
+
 	        }
 	        return value;
 	    }
@@ -15958,27 +15925,21 @@
 
 /***/ },
 /* 11 */
-/*!**********************************!*\
-  !*** ./src/modules/app/app.less ***!
-  \**********************************/
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 /* 12 */
-/*!**********************************!*\
-  !*** ./src/modules/home/home.js ***!
-  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./home.less */ 13);
-	
-	var service = __webpack_require__(/*! ./service */ 14),
-	    appFunc = __webpack_require__(/*! ../utils/appFunc */ 7),
-	    template = __webpack_require__(/*! ./home.tpl.html */ 17),
-	    inputModule = __webpack_require__(/*! ../input/input */ 18);
-	
+	__webpack_require__(13);
+
+	var service = __webpack_require__(14),
+	    appFunc = __webpack_require__(7),
+	    template = __webpack_require__(17),
+	    inputModule = __webpack_require__(18);
+
 	var home = {
 	    init: function(){
 	        this.getTimeline();
@@ -15986,38 +15947,38 @@
 	    },
 	    getTimeline: function(){
 	        var that = this;
-	
+
 	        service.getTimeline(function(tl){
 	            that.renderTimeline(tl);
-	
+
 	            hiApp.hideIndicator();
-	
+
 	            //Unlock scroll loading status
 	            var ptrContent = $$('#homeView').find('.pull-to-refresh-content');
 	            ptrContent.data('scrollLoading','unloading');
 	        });
 	    },
 	    refreshTimeline: function(){
-	
+
 	        service.refreshTimeline(function(tl){
 	            // Find newest msg id in ptrContent;
-	
+
 	            home.refreshItemTime();
-	
+
 	            var newestId = $$('#homeView').find('.home-timeline .card'). eq(0).data('id');
-	
+
 	            setTimeout(function () {
-	
+
 	                $$('#homeView .refresh-click').find('i').removeClass('ios7-reloading');
-	
+
 	                if(parseInt(newestId) === 48) {
 	                    home.showLoadResult(i18n.index.nothing_loaded);
 	                    hiApp.pullToRefreshDone();
 	                    return false;
 	                }
-	
+
 	                var length = tl.length;
-	
+
 	                if(length >= 15){
 	                    home.renderTimeline(tl);
 	                }else if(length > 0){
@@ -16025,23 +15986,23 @@
 	                }else{
 	                    home.showLoadResult(i18n.index.nothing_loaded);
 	                }
-	
+
 	                hiApp.pullToRefreshDone();
-	
+
 	            },1500);
-	
+
 	        });
 	    },
 	    infiniteTimeline: function(){
 	        var $this = $$(this);
-	
+
 	        hiApp.showIndicator();
 	        service.infiniteTimeline(function(tl){
 	            var status = $this.data('scrollLoading');
 	            if (status === 'loading') return;
-	
+
 	            $this.data('scrollLoading','loading');
-	
+
 	            var items = $this.find('.home-timeline .card');
 	            var length = items.length;
 	            var lastId = items.eq(length - 1).data('id');
@@ -16049,11 +16010,11 @@
 	                hiApp.detachInfiniteScroll($this);
 	                hiApp.hideIndicator();
 	            }else{
-	
+
 	                setTimeout(function(){
 	                    $this.data('scrollLoading','unloading');
 	                    home.renderTimeline(tl, 'append');
-	
+
 	                    hiApp.hideIndicator();
 	                },1500);
 	            }
@@ -16063,15 +16024,15 @@
 	        setTimeout(function(){
 	            $$('#homeView .refresh-click').find('i').addClass('ios7-reloading');
 	        },350);
-	
+
 	        $$('#homeView .pull-to-refresh-content').scrollTop(0,300);
-	
+
 	        hiApp.pullToRefreshTrigger('#homeView .pull-to-refresh-content');
 	    },
 	    showLoadResult: function(text){
 	        setTimeout(function(){
 	            $$('#homeView .load-result').html(text).css('opacity','1').transition(1000);
-	
+
 	            setTimeout(function(){
 	                $$('#homeView .load-result').css('opacity','0').transition(1000);
 	            },2100);
@@ -16084,17 +16045,17 @@
 	        });
 	    },
 	    photoBrowser: function(){
-	
+
 	        var url = $$(this).attr('src');
-	
+
 	        var myPhotoBrowser = hiApp.photoBrowser({
 	            photos: [url],
 	            toolbar: false,
 	            backLinkText: i18n.global.close
 	        });
-	
+
 	        myPhotoBrowser.open();
-	
+
 	    },
 	    renderTimeline: function(tl, type){
 	        var renderData = {
@@ -16123,7 +16084,7 @@
 	        homeF7View.router.loadPage('page/tweet.html?id=' + itemId);
 	    },
 	    bindEvent: function(){
-	
+
 	        var bindings = [{
 	            element: '#homeView',
 	            selector: '.pull-to-refresh-content',
@@ -16155,31 +16116,25 @@
 	            event: 'click',
 	            handler: this.photoBrowser
 	        }];
-	
+
 	        appFunc.bindEvents(bindings);
 	    }
 	};
-	
+
 	module.exports = home;
 
 /***/ },
 /* 13 */
-/*!************************************!*\
-  !*** ./src/modules/home/home.less ***!
-  \************************************/
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 /* 14 */
-/*!*************************************!*\
-  !*** ./src/modules/home/service.js ***!
-  \*************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var xhr = __webpack_require__(/*! ../utils/xhr */ 15);
-	
+	var xhr = __webpack_require__(15);
+
 	module.exports = {
 	    getTimeline: function(callback){
 	        xhr.simpleCall({
@@ -16206,16 +16161,13 @@
 
 /***/ },
 /* 15 */
-/*!**********************************!*\
-  !*** ./src/modules/utils/xhr.js ***!
-  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var appFunc = __webpack_require__(/*! ./appFunc */ 7),
-	    networkStatus = __webpack_require__(/*! ../components/networkStatus */ 16);
-	
+	var appFunc = __webpack_require__(7),
+	    networkStatus = __webpack_require__(16);
+
 	module.exports = {
-	
+
 	    search: function(code, array){
 	        for (var i=0;i< array.length; i++){
 	            if (array[i].code === code) {
@@ -16224,69 +16176,69 @@
 	        }
 	        return false;
 	    },
-	
+
 	    getRequestURL: function(options){
 	        //var host = apiServerHost || window.location.host;
 	        //var port = options.port || window.location.port;
 	        var query = options.query || {};
 	        var func = options.func || '';
-	
+
 	        var apiServer = 'api/' + func + '.json' +
 	            (appFunc.isEmpty(query) ? '' : '?');
-	
+
 	        var name;
 	        for (name in query) {
 	            apiServer += name + '=' + query[name] + '&';
 	        }
-	
+
 	        return apiServer.replace(/&$/gi, '');
 	    },
-	
+
 	    simpleCall: function(options,callback){
 	        var that = this;
-	
+
 	        options = options || {};
 	        options.data = options.data ? options.data : '';
-	
+
 	        //If you access your server api ,please user `post` method.
 	        options.method = options.method || 'GET';
 	        //options.method = options.method || 'POST';
-	
+
 	        if(appFunc.isPhonegap()){
 	            //Check network connection
 	            var network = networkStatus.checkConnection();
 	            if(network === 'NoNetwork'){
-	
+
 	                hiApp.alert(i18n.error.no_network,function(){
 	                    hiApp.hideIndicator();
 	                    hiApp.hidePreloader();
 	                });
-	
+
 	                return false;
 	            }
 	        }
-	
+
 	        $$.ajax({
 	            url: that.getRequestURL(options) ,
 	            method: options.method,
 	            data: options.data,
 	            success:function(data){
 	                data = data ? JSON.parse(data) : '';
-	
+
 	                var codes = [
 	                    {code:10000, message:'Your session is invalid, please login again',path:'/'},
 	                    {code:10001, message:'Unknown error,please login again',path:'tpl/login.html'},
 	                    {code:20001, message:'User name or password does not match',path:'/'}
 	                ];
-	
+
 	                var codeLevel = that.search(data.err_code,codes);
-	
+
 	                if(!codeLevel){
-	
+
 	                    (typeof(callback) === 'function') ? callback(data) : '';
-	
+
 	                }else{
-	
+
 	                    hiApp.alert(codeLevel.message,function(){
 	                        hiApp.hideIndicator();
 	                        hiApp.hidePreloader();
@@ -16294,22 +16246,19 @@
 	                }
 	            }
 	        });
-	
+
 	    }
 	};
 
 /***/ },
 /* 16 */
-/*!*************************************************!*\
-  !*** ./src/modules/components/networkStatus.js ***!
-  \*************************************************/
 /***/ function(module, exports) {
 
 	module.exports = {
-	
+
 	    checkConnection: function () {
 	        var networkState = navigator.connection.type;
-	
+
 	        var states = {};
 	        states[Connection.UNKNOWN]  = 'UNKNOWN';
 	        states[Connection.ETHERNET] = 'ETHERNET';
@@ -16319,7 +16268,7 @@
 	        states[Connection.CELL_4G]  = 'CELL_4G';
 	        states[Connection.CELL]     = 'CELL';
 	        states[Connection.NONE]     = 'NoNetwork';
-	
+
 	        return states[networkState];
 	    }
 	};
@@ -16327,35 +16276,29 @@
 
 /***/ },
 /* 17 */
-/*!****************************************!*\
-  !*** ./src/modules/home/home.tpl.html ***!
-  \****************************************/
 /***/ function(module, exports) {
 
 	module.exports = "{{#timeline}}\n<div data-id=\"{{id}}\" data-iframe=\"{{iframe}}\" class=\"card ks-facebook-card\">\n\n    <div class=\"card-content\">\n        <div class=\"card-content-inner\">\n            {{#if original_pic}}\n            <div class=\"item-image\">\n                <div class=\"item-image-box\" data-pic=\"{{original_pic}}\" style=\"background-image: url({{original_pic}})\"></div>\n                <div class=\"item-title\">{{title}}</div>\n            </div>\n            {{/if}}\n\n            <p>{{text}}</p>\n        </div>\n    </div>\n    <!--<div class=\"card-footer\"><a href=\"#\" class=\"link\">{{t i18n=\"timeline.forward\"}}</a><a href=\"#\" class=\"link\">{{t i18n=\"timeline.comment\"}}</a><a href=\"#\" class=\"link\">{{t i18n=\"timeline.like\"}}</a></div>-->\n</div>\n{{/timeline}}";
 
 /***/ },
 /* 18 */
-/*!************************************!*\
-  !*** ./src/modules/input/input.js ***!
-  \************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./input.less */ 19);
-	
-	var appFunc = __webpack_require__(/*! ../utils/appFunc */ 7),
-	    template = __webpack_require__(/*! ./input.tpl.html */ 20),
-	    camera = __webpack_require__(/*! ../components/camera */ 21),
-	    geo = __webpack_require__(/*! ../components/geolocation */ 23);
-	
+	__webpack_require__(19);
+
+	var appFunc = __webpack_require__(7),
+	    template = __webpack_require__(20),
+	    camera = __webpack_require__(21),
+	    geo = __webpack_require__(23);
+
 	var inputModule = {
 	    openSendPopup: function(){
-	
+
 	        var output = appFunc.renderTpl(template, {
 	            send_placeholder: i18n.index.send_placeholder
 	        });
 	        hiApp.popup(output);
-	
+
 	        var bindings = [{
 	            element: '#sendWeiboBtn',
 	            event: 'click',
@@ -16373,26 +16316,26 @@
 	            event: 'click',
 	            handler: camera.getPicture
 	        }];
-	
+
 	        appFunc.bindEvents(bindings);
 	    },
 	    postMessage: function(){
 	        var text = $$('#messageText').val();
-	
+
 	        if(appFunc.getCharLength(text) < 4){
 	            hiApp.alert(i18n.index.err_text_too_short);
 	            return;
 	        }
-	
+
 	        var imgSrc = $$('#uploadPicPreview>img').attr('src');
-	
+
 	        if(imgSrc !== 'http://placeholder'){
 	            if(appFunc.isPhonegap()) {
 	                camera.startUpload(imgSrc);
 	            }
 	        }else {
 	            hiApp.showPreloader(i18n.index.sending);
-	
+
 	            setTimeout(function () {
 	                hiApp.hidePreloader();
 	                hiApp.closeModal('.send-popup');
@@ -16401,63 +16344,54 @@
 	        }
 	    }
 	};
-	
+
 	module.exports = inputModule;
 
 /***/ },
 /* 19 */
-/*!**************************************!*\
-  !*** ./src/modules/input/input.less ***!
-  \**************************************/
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 /* 20 */
-/*!******************************************!*\
-  !*** ./src/modules/input/input.tpl.html ***!
-  \******************************************/
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"send-popup popup\">\n    <div class=\"view navbar-fixed\">\n        <div class=\"page\">\n            <div class=\"navbar\">\n                <div class=\"navbar-inner\">\n                    <div class=\"left\"><a href=\"#\" class=\"link close-popup\">{{t i18n=\"global.cancel\"}}</a></div>\n                    <div class=\"center\">{{t i18n=\"index.sen_tweet\"}}</div>\n                    <div class=\"right\"><a id=\"sendWeiboBtn\" href=\"#\" class=\"link color-orange\">{{t i18n=\"global.send\"}}</a></div>\n                </div>\n            </div>\n            <div class=\"page-content message-content\">\n\n                <div class=\"message-input\">\n                    <textarea id=\"messageText\" placeholder=\"{{send_placeholder}}\"></textarea>\n                </div>\n\n                <div class=\"message-tools\">\n                    <ul>\n                        <li class=\"camera image-upload\">\n                            <i class=\"icon ios7-camera-outline\"></i>\n                        </li>\n                        <li class=\"photoalbum image-upload\">\n                            <i class=\"icon ios7-pic\"></i>\n                        </li>\n                        <li><i class=\"icon ios7-emotion\"></i></li>\n                        <li><i class=\"icon ios7-at-outline\"></i></li>\n                        <li class=\"get-position\"><i class=\"icon ios7-dingxiang\"></i></li>\n                    </ul>\n                </div>\n\n                <div id=\"geoInfo\" class=\"geo-info\">\n                    <div class=\"location\"><i class=\"icon preloader\"></i><span class=\"info\">{{t i18n=\"geo.loading_geo\"}}</span></div>\n                    <div class=\"close\"><i class=\"icon ios7-close\"></i></div>\n                </div>\n\n                <div id=\"uploadPicPreview\" class=\"upload-pic-preview\">\n                    <img src=\"http://placeholder\" alt=\"\" />\n                </div>\n\n            </div>\n        </div>\n    </div>\n</div>";
 
 /***/ },
 /* 21 */
-/*!******************************************!*\
-  !*** ./src/modules/components/camera.js ***!
-  \******************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var appFunc = __webpack_require__(/*! ../utils/appFunc */ 7),
-	    networkStatus = __webpack_require__(/*! ./networkStatus */ 16),
-	    fileTransfer = __webpack_require__(/*! ./fileTransfer */ 22);
-	
+	var appFunc = __webpack_require__(7),
+	    networkStatus = __webpack_require__(16),
+	    fileTransfer = __webpack_require__(22);
+
 	var camera = {
 	    getPicture: function(){
-	
+
 	        if(!appFunc.isPhonegap()){
 	            hiApp.alert(i18n.error.phonegap_only);
 	            return false;
 	        }
-	
+
 	        var $this = $$(this);
-	
+
 	        var netStatus = networkStatus.checkConnection();
-	
+
 	        var quality, sourceType;
 	        if(netStatus === 'WIFI'){
 	            quality = 80;
 	        }else{
 	            quality = 50;
 	        }
-	
+
 	        if(!$this.hasClass('camera')){
 	            sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
 	        }else{
 	            sourceType = Camera.PictureSourceType.CAMERA;
 	        }
-	
+
 	        var cameraOptions = {
 	            quality: quality,
 	            allowEdit: false,
@@ -16466,17 +16400,17 @@
 	            targetWidth: 1280,
 	            targetHeight: 1920
 	        };
-	
+
 	        navigator.camera.getPicture(camera.cameraSuccess,camera.cameraError,cameraOptions);
-	
+
 	    },
-	
+
 	    cameraSuccess: function(fileUrl){
 	        $$('#uploadPicPreview>img').attr('src',fileUrl);
 	        $$('#uploadPicPreview').show();
-	
+
 	    },
-	
+
 	    cameraError: function(message){
 	        setTimeout(function(){
 	            if(message !== 'no image selected'){
@@ -16484,32 +16418,29 @@
 	            }
 	        },500);
 	    },
-	
+
 	    clearCache: function(){
 	        navigator.camera.cleanup();
 	    },
-	
+
 	    startUpload: function(url){
 	        fileTransfer.startUpload(url);
 	    }
 	};
-	
+
 	module.exports = camera;
 
 /***/ },
 /* 22 */
-/*!************************************************!*\
-  !*** ./src/modules/components/fileTransfer.js ***!
-  \************************************************/
 /***/ function(module, exports) {
 
 	var ft;
-	
+
 	var fileTransfer = {
 	    startUpload: function(fileUrl){
-	
+
 	        var uploadServer = 'http://up.qiniu.com/';
-	
+
 	        //Upload progress
 	        var text = '<div id="progress" class="progress"><span class="progress-bar"></span></div>';
 	        hiApp.modal({
@@ -16520,7 +16451,7 @@
 	                onClick: fileTransfer.abortUpload
 	            }]
 	        });
-	
+
 	        /* global FileUploadOptions */
 	        var options = new FileUploadOptions();
 	        options.fileKey = 'upfile';
@@ -16529,23 +16460,23 @@
 	        options.params = {};
 	        ft = new FileTransfer();
 	        ft.upload(fileUrl, encodeURI(uploadServer), fileTransfer.uploadSuccess , fileTransfer.uploadFail , options);
-	
+
 	        ft.onprogress = fileTransfer.onprogress;
 	    },
-	
+
 	    uploadSuccess: function (r) {
 	        hiApp.closeModal('.modal');
-	
+
 	        navigator.camera.cleanup();
-	
+
 	        var response = r.response ? JSON.parse(r.response) : '';
-	
+
 	        hiApp.alert(response);
 	    },
-	
+
 	    uploadFail: function (error) {
 	        hiApp.closeModal('.modal');
-	
+
 	        /* global FileTransferError */
 	        var errText;
 	        switch (error.code){
@@ -16565,10 +16496,10 @@
 	                errText = i18n.camera.not_modified_err;
 	                break;
 	        }
-	
+
 	        hiApp.alert(errText);
 	    },
-	
+
 	    onprogress: function(progressEvent){
 	        if (progressEvent.lengthComputable) {
 	            var percent = Math.round((progressEvent.loaded / progressEvent.total) * 100);
@@ -16576,35 +16507,32 @@
 	            $$('#progress').find('.progress-bar').css('width',percent + '%');
 	        }
 	    },
-	
+
 	    abortUpload: function(){
 	        ft.abort();
 	    }
 	};
-	
+
 	module.exports = fileTransfer;
 
 /***/ },
 /* 23 */
-/*!***********************************************!*\
-  !*** ./src/modules/components/geolocation.js ***!
-  \***********************************************/
 /***/ function(module, exports) {
 
 	var GlobalLat = null,
 	    GlobalLong = null;
-	
+
 	var geolocation = {
 	    initGeo: function(){
 	        $$('#geoInfo').removeClass('show').hide();
-	
+
 	        $$('#geoInfo .location>i').removeClass('ios7-location-outline').addClass('preloader');
 	        $$('#geoInfo .location>span').html(i18n.geo.loading_geo);
-	
+
 	        GlobalLat = null;
 	        GlobalLong = null;
 	    },
-	
+
 	    catchGeoInfo: function(){
 	        $$('#geoInfo').addClass('show').show();
 	        if (navigator.geolocation){
@@ -16613,18 +16541,18 @@
 	            $$('#geoInfo .location').html(i18n.geo.position_unavailable);
 	        }
 	    },
-	
+
 	    showPosition: function(position){
 	        var lat = position.coords.latitude;
 	        var long = position.coords.longitude;
-	
+
 	        $$('#geoInfo .location>i').removeClass('preloader').addClass('ios7-location-outline');
 	        $$('#geoInfo .location>span').html(( Math.round(lat * 10000)/10000) + '/' + ( Math.round(long * 10000)/10000) );
-	
+
 	        GlobalLat = lat;
 	        GlobalLong = long;
 	    },
-	
+
 	    showGeoError: function(error){
 	        switch(error.code)
 	        {
@@ -16642,35 +16570,32 @@
 	                break;
 	        }
 	    },
-	
+
 	    getGeo: function(){
 	        return {
 	            lat:GlobalLat,
 	            long:GlobalLong
 	        };
 	    },
-	
+
 	    cleanGeo: function(){
 	        hiApp.confirm(i18n.geo.confirm_clean_geo,geolocation.initGeo);
 	    }
 	};
-	
+
 	module.exports = geolocation;
 
 
 /***/ },
 /* 24 */
-/*!******************************************!*\
-  !*** ./src/modules/contacts/contacts.js ***!
-  \******************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./contacts.less */ 25);
-	
-	var appFunc = __webpack_require__(/*! ../utils/appFunc */ 7),
-	    service = __webpack_require__(/*! ./service */ 26),
-	    template = __webpack_require__(/*! ./contacts.tpl.html */ 27);
-	
+	__webpack_require__(25);
+
+	var appFunc = __webpack_require__(7),
+	    service = __webpack_require__(26),
+	    template = __webpack_require__(27);
+
 	var contacts = {
 	    init: function(){
 	        contacts.bindEvents();
@@ -16681,7 +16606,7 @@
 	                searchList: '.contacts-list',
 	                searchIn: '.item-title'
 	            });
-	
+
 	            service.loadContacts(function(c){
 	                setTimeout(function(){
 	                    var renderData = {
@@ -16689,9 +16614,9 @@
 	                    };
 	                    var output = appFunc.renderTpl(template, renderData);
 	                    $$('#contactView .contacts-list ul').html(output);
-	
+
 	                    hiApp.hideIndicator();
-	
+
 	                },500);
 	            });
 	        }
@@ -16710,32 +16635,26 @@
 	            event: 'show',
 	            handler: contacts.loadContacts
 	        }];
-	
+
 	        appFunc.bindEvents(bindings);
 	    }
 	};
-	
+
 	module.exports = contacts;
 
 
 /***/ },
 /* 25 */
-/*!********************************************!*\
-  !*** ./src/modules/contacts/contacts.less ***!
-  \********************************************/
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 /* 26 */
-/*!*****************************************!*\
-  !*** ./src/modules/contacts/service.js ***!
-  \*****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var xhr = __webpack_require__(/*! ../utils/xhr */ 15);
-	
+	var xhr = __webpack_require__(15);
+
 	module.exports = {
 	    loadContacts: function(callback) {
 	        xhr.simpleCall({
@@ -16748,43 +16667,37 @@
 
 /***/ },
 /* 27 */
-/*!************************************************!*\
-  !*** ./src/modules/contacts/contacts.tpl.html ***!
-  \************************************************/
 /***/ function(module, exports) {
 
 	module.exports = "{{#contacts}}\n{{#if header}}\n<li class=\"list-group-title\">{{header}}</li>\n{{/if}}\n<li class=\"contact-item\">\n    <a href=\"page/message.html?nickname={{nickname}}\" class=\"item-link\">\n        <div class=\"item-content\">\n            <div class=\"item-media\"><img src=\"http://lorempixel.com/68/68/people/{{avatar}}/\" width=\"44\"></div>\n            <div class=\"item-inner\">\n                <div class=\"item-title-row\">\n                    <div class=\"item-title\">{{nickname}}</div>\n                </div>\n                <div class=\"item-subtitle\">{{location}}</div>\n            </div>\n        </div>\n    </a>\n</li>\n{{/contacts}}";
 
 /***/ },
 /* 28 */
-/*!****************************************!*\
-  !*** ./src/modules/setting/setting.js ***!
-  \****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./setting.less */ 29);
-	
-	var appFunc = __webpack_require__(/*! ../utils/appFunc */ 7),
-	    template = __webpack_require__(/*! ./setting.tpl.html */ 30);
-	
+	__webpack_require__(29);
+
+	var appFunc = __webpack_require__(7),
+	    template = __webpack_require__(30);
+
 	var settingView = {
 	    init: function(){
 	        settingView.bindEvents();
 	    },
 	    renderSetting: function(){
 	        if($$('#settingView .page-content')[0]) return;
-	
+
 	        hiApp.showIndicator();
-	
+
 	        var renderData = {
 	            avatarUrl: 'http://cs625121.vk.me/v625121132/2748e/xHdMewH7_eo.jpg',
 	            nickName: 'doncode',
 	            points: '100'
 	        };
-	
+
 	        var output = appFunc.renderTpl(template, renderData);
 	        $$('#settingView .page[data-page="setting"]').html(output);
-	
+
 	        hiApp.hideIndicator();
 	    },
 	    logOut: function(){
@@ -16812,58 +16725,49 @@
 	        appFunc.bindEvents(bindings);
 	    }
 	};
-	
+
 	module.exports = settingView;
 
 /***/ },
 /* 29 */
-/*!******************************************!*\
-  !*** ./src/modules/setting/setting.less ***!
-  \******************************************/
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 /* 30 */
-/*!**********************************************!*\
-  !*** ./src/modules/setting/setting.tpl.html ***!
-  \**********************************************/
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"page-content\">\n    <div class=\"setting-page list-block\">\n        <!--<ul>-->\n            <!--<li>-->\n                <!--<div class=\"item-content\">-->\n                    <div class=\"item-inner user-info\">\n                        <div class=\"avatar\">\n                            <img src=\"{{avatarUrl}}\" alt=\"\">\n                        </div>\n                        <div class=\"user-detail\">\n\n                            <div class=\"name\">\n                                <!--{{t i18n=\"setting.nickname\"}}: {{nickName}}-->\n                                Alexander\n                            </div>\n                            <div class=\"name\">\n                                Basov\n                            </div>\n                            <!--<div class=\"point\">{{t i18n=\"setting.points\"}}: {{points}}</div>-->\n\n                        </div>\n                    </div>\n                <!--<div class=\"add-video\"> + Добавить видео</div>-->\n                <!--</div>-->\n\n            <!--</li>-->\n            <!--<li>-->\n                <!--<a href=\"page/feedback.html\" class=\"item-link\">-->\n                    <!--<div class=\"item-content\">-->\n                        <!--<div class=\"item-media feedback spring\"></div>-->\n                        <!--<div class=\"item-inner\">-->\n                            <!--<div class=\"item-title\">{{t i18n=\"setting.feed_back\"}}</div>-->\n                        <!--</div>-->\n                    <!--</div>-->\n                <!--</a>-->\n            <!--</li>-->\n            <!--<li>-->\n                <!--<a href=\"page/language.html?from=setting\" class=\"item-link\">-->\n                    <!--<div class=\"item-content\">-->\n                        <!--<div class=\"item-media language\">-->\n                            <!--<i class=\"icon ios7-world-outline\"></i>-->\n                        <!--</div>-->\n                        <!--<div class=\"item-inner\">-->\n                            <!--<div class=\"item-title\">{{t i18n=\"global.language\"}}</div>-->\n                        <!--</div>-->\n                    <!--</div>-->\n                <!--</a>-->\n            <!--</li>-->\n            <!--<li>-->\n                <!--<a href=\"page/about.html\" class=\"item-link\">-->\n                    <!--<div class=\"item-content\">-->\n                        <!--<div class=\"item-media about spring\"></div>-->\n                        <!--<div class=\"item-inner\">-->\n                            <!--<div class=\"item-title\">{{t i18n=\"setting.about\"}}</div>-->\n                        <!--</div>-->\n                    <!--</div>-->\n                <!--</a>-->\n            <!--</li>-->\n        <!--</ul>-->\n        <a href=\"#\" class=\"button button-big logout-button button-fill color-red\">{{t i18n=\"setting.login_out\"}}</a>\n        <a href=\"#\" class=\"button button-big button-fill\">Добавить видео</a>\n        <div class=\"my-video\">Мои видео</div>\n    </div>\n    <div class=\"home-timeline\">\n\n    </div>\n</div>";
 
 /***/ },
 /* 31 */
-/*!************************************!*\
-  !*** ./src/modules/tweet/tweet.js ***!
-  \************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./tweet.less */ 32);
-	
-	var appFunc = __webpack_require__(/*! ../utils/appFunc */ 7),
-	    commentModule = __webpack_require__(/*! ../comment/comment */ 33),
-	    template = __webpack_require__(/*! ./tweet.tpl.html */ 38);
-	
+	__webpack_require__(32);
+
+	var appFunc = __webpack_require__(7),
+	    commentModule = __webpack_require__(33),
+	    template = __webpack_require__(38);
+
 	var id;
-	
+
 	var tweetModule = {
 	    init: function(query){
 	        id = query.id;
 	        appFunc.hideToolbar();
-	
+
 	        this.bindEvents();
-	
+
 	        // render tweet card
 	        this.getTweet();
-	
+
 	        // init comment module
 	        commentModule.init();
 	    },
 	    getTweet: function(){
 	        var $this = $$('#homeView .home-timeline .card[data-id="'+ id +'"]');
-	
+
 	        var item = {
 	            id: $this.data('id'),
 	            title: $this.find('.item-title').html(),
@@ -16873,13 +16777,13 @@
 	            original_pic: $this.find('.item-image-box').data('pic'),
 	            iframe: $this.data('iframe'),
 	        };
-	
+
 	        console.log(item);
 	        if($this.find('.item-image>img')[0])
 	            item.image = $this.find('.item-image img').attr('src');
-	
+
 	        var output = appFunc.renderTpl(template, item);
-	
+
 	        $$('#itemContent').html(output);
 	    },
 	    bindEvents: function(){
@@ -16893,35 +16797,29 @@
 	            event: 'click',
 	            handler: commentModule.commentPopup
 	        }];
-	
+
 	        appFunc.bindEvents(bindings);
 	    }
 	};
-	
+
 	module.exports = tweetModule;
 
 /***/ },
 /* 32 */
-/*!**************************************!*\
-  !*** ./src/modules/tweet/tweet.less ***!
-  \**************************************/
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 /* 33 */
-/*!****************************************!*\
-  !*** ./src/modules/comment/comment.js ***!
-  \****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./comment.less */ 34);
-	var appFunc = __webpack_require__(/*! ../utils/appFunc */ 7),
-	    service = __webpack_require__(/*! ./service */ 35),
-	    template = __webpack_require__(/*! ./comment.tpl.html */ 36),
-	    popupTpl = __webpack_require__(/*! ./commentPopup.tpl.html */ 37);
-	
+	__webpack_require__(34);
+	var appFunc = __webpack_require__(7),
+	    service = __webpack_require__(35),
+	    template = __webpack_require__(36),
+	    popupTpl = __webpack_require__(37);
+
 	var commentModule = {
 	    init: function(){
 	        this.getComments();
@@ -16930,7 +16828,7 @@
 	        service.getComments(function(c){
 	            var random = Math.floor(Math.random()*2);
 	            if(!random) c = null;
-	
+
 	            setTimeout(function(){
 	                var renderData = {
 	                    comments: c,
@@ -16947,7 +16845,7 @@
 	        var renderData = {
 	            comment: i18n.timeline.comment
 	        };
-	
+
 	        if(params.name){
 	            renderData.title = i18n.comment.reply_comment;
 	            renderData.placeholder = i18n.comment.reply + '@' + params.name + ':';
@@ -16955,32 +16853,32 @@
 	            renderData.title = i18n.timeline.comment;
 	            renderData.placeholder = i18n.comment.placeholder;
 	        }
-	
+
 	        var output = appFunc.renderTpl(popupTpl, renderData);
 	        hiApp.popup(output);
-	
+
 	        var bindings = [{
 	            element:'#commentBtn',
 	            event: 'click',
 	            handler: commentModule.sendComment
 	        }];
-	
+
 	        appFunc.bindEvents(bindings);
 	    },
 	    sendComment: function(){
 	        var text = $$('#commentText').val();
-	
+
 	        if(appFunc.getCharLength(text) < 4){
 	            hiApp.alert(i18n.index.err_text_too_short);
 	            return false;
 	        }
-	
+
 	        hiApp.showPreloader(i18n.comment.commenting);
-	
+
 	        setTimeout(function(){
 	            hiApp.hidePreloader();
 	            hiApp.closeModal('.comment-popup');
-	
+
 	            //Refresh comment content
 	        },1500);
 	    },
@@ -17005,32 +16903,26 @@
 	                color: 'red'
 	            }
 	        ];
-	
+
 	        var groups = [buttons1, buttons2];
 	        hiApp.actions(groups);
 	    }
 	};
-	
+
 	module.exports = commentModule;
 
 /***/ },
 /* 34 */
-/*!******************************************!*\
-  !*** ./src/modules/comment/comment.less ***!
-  \******************************************/
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 /* 35 */
-/*!****************************************!*\
-  !*** ./src/modules/comment/service.js ***!
-  \****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var xhr = __webpack_require__(/*! ../utils/xhr */ 15);
-	
+	var xhr = __webpack_require__(15);
+
 	module.exports = {
 	    getComments: function(callback) {
 	        xhr.simpleCall({
@@ -17043,44 +16935,32 @@
 
 /***/ },
 /* 36 */
-/*!**********************************************!*\
-  !*** ./src/modules/comment/comment.tpl.html ***!
-  \**********************************************/
 /***/ function(module, exports) {
 
 	module.exports = "{{#each comments}}\n<li class=\"comment-item\">\n    <div class=\"avatar\">\n        <img src=\"http://lorempixel.com/68/68/people/{{avatar}}/\" alt=\"\">\n    </div>\n    <div class=\"comment-detail\">\n        <div class=\"name\">{{name}}</div>\n        <div class=\"text\">{{text}}</div>\n        <div class=\"time\">{{rtime}}</div>\n    </div>\n</li>\n{{else}}\n<div class=\"none-comment\">\n    <i class=\"icon ios7-chatboxes-outline\"></i>\n    <p>{{t i18n=\"i18n.comment.empty_comment\"}}</p>\n</div>\n{{/each}}";
 
 /***/ },
 /* 37 */
-/*!***************************************************!*\
-  !*** ./src/modules/comment/commentPopup.tpl.html ***!
-  \***************************************************/
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"popup comment-popup\">\n    <div class=\"view navbar-fixed\">\n        <div class=\"page\">\n            <div class=\"navbar\">\n                <div class=\"navbar-inner\">\n                    <div class=\"left\"><a href=\"#\" class=\"link close-popup\">{{t i18n=\"global.cancel\"}}</a></div>\n                    <div class=\"center\">{{title}}</div>\n                    <div class=\"right\"><a id=\"commentBtn\" href=\"#\" class=\"link color-orange\">{{t i18n=\"global.send\"}}</a></div>\n                </div>\n            </div>\n            <div class=\"page-content message-content\">\n\n                <div class=\"message-input\">\n                    <textarea id=\"commentText\" placeholder=\"{{placeholder}}\"></textarea>\n                </div>\n\n                <div class=\"message-tools\">\n                    <ul>\n                        <li><i class=\"icon ios7-emotion\"></i></li>\n                        <li><i class=\"icon ios7-at-outline\"></i></li>\n                    </ul>\n                </div>\n\n            </div>\n        </div>\n    </div>\n</div>";
 
 /***/ },
 /* 38 */
-/*!******************************************!*\
-  !*** ./src/modules/tweet/tweet.tpl.html ***!
-  \******************************************/
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"card ks-facebook-card\">\n    <!--<div class=\"card-header\">-->\n        <!--<div class=\"ks-facebook-avatar\"><img src=\"http://lorempixel.com/68/68/people/{{avatar}}/\" width=\"34\" height=\"34\"></div>-->\n        <!--<div class=\"ks-facebook-name\">{{nickname}}</div>-->\n        <!--<div class=\"ks-facebook-date\">{{time}}</div>-->\n    <!--</div>-->\n    <div class=\"card-content\">\n        <div class=\"card-content-inner\">\n            <iframe width=\"100%\" height=\"250\" src=\"{{iframe}}\" frameborder=\"0\"\n                    allowfullscreen></iframe>\n            <!--<div class=\"item-image\">-->\n                <!--<div class=\"item-image-box\" style=\"background-image: url({{original_pic}})\"></div>-->\n                <!--<div class=\"item-title\">{{title}}</div>-->\n            <!--</div>-->\n\n            <p>{{text}}</p>\n        </div>\n    </div>\n</div>";
 
 /***/ },
 /* 39 */
-/*!******************************************!*\
-  !*** ./src/modules/feedback/feedback.js ***!
-  \******************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var appFunc = __webpack_require__(/*! ../utils/appFunc */ 7);
-	
+	var appFunc = __webpack_require__(7);
+
 	module.exports = {
 	    init: function(){
 	        appFunc.hideToolbar();
-	
+
 	        this.bindEvents();
 	    },
 	    sendFeedback: function(){
@@ -17096,22 +16976,19 @@
 	            event: 'click',
 	            handler: this.sendFeedback
 	        }];
-	
+
 	        appFunc.bindEvents(bindings);
 	    }
 	};
 
 /***/ },
 /* 40 */
-/*!************************************!*\
-  !*** ./src/modules/about/about.js ***!
-  \************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./about.less */ 41);
-	
-	var appFunc = __webpack_require__(/*! ../utils/appFunc */ 7);
-	
+	__webpack_require__(41);
+
+	var appFunc = __webpack_require__(7);
+
 	module.exports = {
 	    init: function(){
 	        appFunc.hideToolbar();
@@ -17120,29 +16997,23 @@
 
 /***/ },
 /* 41 */
-/*!**************************************!*\
-  !*** ./src/modules/about/about.less ***!
-  \**************************************/
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 /* 42 */
-/*!******************************************!*\
-  !*** ./src/modules/language/language.js ***!
-  \******************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./language.less */ 43);
-	
-	var appFunc = __webpack_require__(/*! ../utils/appFunc */ 7),
-	    appService = __webpack_require__(/*! ../services/appService */ 8);
-	
+	__webpack_require__(43);
+
+	var appFunc = __webpack_require__(7),
+	    appService = __webpack_require__(8);
+
 	module.exports = {
 	    init: function(){
 	        appFunc.hideToolbar();
-	
+
 	        this.bindEvents();
 	        this.setDefaultLanguage();
 	    },
@@ -17167,40 +17038,34 @@
 
 /***/ },
 /* 43 */
-/*!********************************************!*\
-  !*** ./src/modules/language/language.less ***!
-  \********************************************/
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 /* 44 */
-/*!****************************************!*\
-  !*** ./src/modules/message/message.js ***!
-  \****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./message.less */ 45);
-	
-	var appFunc = __webpack_require__(/*! ../utils/appFunc */ 7),
-	    service = __webpack_require__(/*! ./service */ 46),
-	    template = __webpack_require__(/*! ./message.tpl.html */ 47);
-	
+	__webpack_require__(45);
+
+	var appFunc = __webpack_require__(7),
+	    service = __webpack_require__(46),
+	    template = __webpack_require__(47);
+
 	var conversationStarted = false,
 	    answers = {},
 	    answerTimeout,
 	    messageLayout;
-	
+
 	module.exports = {
 	    init: function(query){
 	        var that = this;
-	
+
 	        appFunc.hideToolbar();
-	
+
 	        service.getAnswers(function(a){
 	            answers = a;
-	
+
 	            var bindings = [{
 	                element: '.ks-messages-form',
 	                event: 'submit',
@@ -17210,15 +17075,15 @@
 	                event: 'click',
 	                handler: that.triggerSubmit
 	            }];
-	
+
 	            appFunc.bindEvents(bindings);
-	
+
 	            var name = query.nickname;
 	            $$('.chat-name').html(name);
-	
+
 	            // render messages
 	            that.renderMessages();
-	
+
 	            // Init Messages
 	            messageLayout = hiApp.messages('#contactView .messages', {
 	                autoLayout:true
@@ -17227,7 +17092,7 @@
 	    },
 	    renderMessages: function(message){
 	        hiApp.showIndicator();
-	
+
 	        service.getMessages(function(m){
 	            setTimeout(function(){
 	                var renderData = {
@@ -17235,22 +17100,22 @@
 	                };
 	                var output = appFunc.renderTpl(template, renderData);
 	                $$('.page[data-page="message"] .messages').html(output);
-	
+
 	                hiApp.hideIndicator();
-	
+
 	            },600);
 	        });
 	    },
 	    submitMessage: function(e){
-	
+
 	        e.preventDefault();
 	        var input = $$(this).find('.ks-messages-input');
 	        var messageText = input.val();
 	        if (messageText.length === 0) return;
-	
+
 	        // Empty input
 	        input.val('');
-	
+
 	        // Add Message
 	        messageLayout.addMessage({
 	            text: messageText,
@@ -17259,7 +17124,7 @@
 	            time: !conversationStarted ? (new Date()).getHours() + ':' + (new Date()).getMinutes() : false
 	        });
 	        conversationStarted = true;
-	
+
 	        // Add answer after timeout
 	        if (answerTimeout) clearTimeout(answerTimeout);
 	        answerTimeout = setTimeout(function () {
@@ -17277,22 +17142,16 @@
 
 /***/ },
 /* 45 */
-/*!******************************************!*\
-  !*** ./src/modules/message/message.less ***!
-  \******************************************/
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 /* 46 */
-/*!****************************************!*\
-  !*** ./src/modules/message/service.js ***!
-  \****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var xhr = __webpack_require__(/*! ../utils/xhr */ 15);
-	
+	var xhr = __webpack_require__(15);
+
 	module.exports = {
 	    getAnswers: function(callback) {
 	        xhr.simpleCall({
@@ -17312,13 +17171,9 @@
 
 /***/ },
 /* 47 */
-/*!**********************************************!*\
-  !*** ./src/modules/message/message.tpl.html ***!
-  \**********************************************/
 /***/ function(module, exports) {
 
 	module.exports = "{{#each message}}\n{{#if date}}\n<div class=\"messages-date\">{{date}}</div>\n{{/if}}\n{{#if image}}\n<div class=\"message message-{{from}} message-pic \">\n    <div class=\"message-text\"><img src=\"{{text}}\"/></div>\n</div>\n{{else}}\n<div class=\"message message-{{from}} message-last\">\n    <div class=\"message-text\">{{text}}</div>\n</div>\n{{/if}}\n{{/each}}";
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=app.js.map

@@ -1,9 +1,6 @@
 webpackJsonp([2],{
 
 /***/ 49:
-/*!***********************************!*\
-  !*** ./src/modules/lang/zh-cn.js ***!
-  \***********************************/
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -104,4 +101,3 @@ webpackJsonp([2],{
 /***/ }
 
 });
-//# sourceMappingURL=2.app.js.map

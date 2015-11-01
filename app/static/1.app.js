@@ -1,9 +1,6 @@
 webpackJsonp([1],{
 
 /***/ 48:
-/*!***********************************!*\
-  !*** ./src/modules/lang/en-us.js ***!
-  \***********************************/
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -105,4 +102,3 @@ webpackJsonp([1],{
 /***/ }
 
 });
-//# sourceMappingURL=1.app.js.map
