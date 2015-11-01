@@ -3,6 +3,8 @@ from .base import AdminModelView
 
 
 class MovieModelView(AdminModelView):
+    columns_excludei_list = ('url', 'pic')
+
     column_searchable_list = ('name',)
 
 
