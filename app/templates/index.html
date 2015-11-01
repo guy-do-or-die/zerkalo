@@ -51,7 +51,6 @@
     </div>
 
     <div id="contactView" class="view tab">
-
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="center sliding i18n" data-i18n="app.name"></div>
@@ -60,29 +59,20 @@
 
         <div class="pages navbar-through">
             <div data-page="contactView" class="page contact-page">
-                <!-- Search bar -->
-                <!--<form class="searchbar">-->
-                    <!--<div class="searchbar-input">-->
-                        <!--<input type="search" class="i18n" data-i18n="[placeholder]global.search">-->
-                        <!--<a href="#" class="searchbar-clear"></a>-->
-                    <!--</div>-->
-                    <!--<a href="#" class="searchbar-cancel i18n" data-i18n="global.cancel"></a>-->
-                <!--</form>-->
-
-                <!-- Search bar overlay-->
-                <div class="searchbar-overlay"></div>
-
-                <div class="page-content">
-                    <div class="list-block contacts-list searchbar-found">
-                        <div class="list-group">
-                            <ul></ul>
-                        </div>
+                <div data-distance="50" class="page-content pull-to-refresh-content infinite-scroll">
+                    <div class="pull-to-refresh-layer">
+                        <div class="preloader"></div>
+                        <div class="pull-to-refresh-arrow"></div>
                     </div>
-                    <div class="content-block searchbar-not-found i18n" data-i18n="index.nothing_found" >
+                    <div class="load-result"></div>
+                    <div class="home-timeline">
                     </div>
                 </div>
             </div>
         </div>
+
+
+
     </div>
 
     <div id="settingView" class="view tab">
